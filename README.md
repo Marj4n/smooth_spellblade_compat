@@ -90,3 +90,21 @@ Observed crash fixed by this patch:
 ## mutable legacy target lists
 
 Spell Engine 1.10 may provide immutable delivery target lists, while Spellblades 2.4 legacy custom handlers assume `CustomSpellHandler.Data.targets()` is mutable (for example `eviscerate` removes the caster from the list). The compatibility bridge now copies modern delivery targets into a mutable `ArrayList` before invoking every legacy custom handler.
+
+## 1.0.1 - Extra Spell Attributes construction guard
+
+- Fixes a server-start crash caused by Extra Spell Attributes 1.4.0 reading `DISSOLUTION` while a `LivingEntity` is still being constructed.
+- Handles the Create / Porting Lib entity-size callback path and Moonlight / Supplementaries `FakePlayer` startup path.
+- When the `AttributeContainer` is not initialized yet, `LivingEntity#getAttributeValue(...)` temporarily returns the attribute default value instead of dereferencing `null`.
+- The guard only changes the short entity-construction window; normal attribute calculations are untouched after initialization.
+
+Observed crash fixed by this patch:
+`NullPointerException: LivingEntity.getAttributes() is null -> extraspellattributes$getHealthDissolution`
+
+## 1.0.2 - Zenith Attributes Renewed compatibility
+
+- Added an optional compatibility transform for **Zenith Attributes Renewed 1.0.3** (`zenith_attributes`).
+- Fixed a client crash while rendering the Attributes GUI with Spell Power 1.6.x.
+- Redirects Zenith Attributes' legacy `SpellSchool.attribute` field access through `LegacySpellPowerAccess.attribute(...)`.
+- Keeps the Zenith integration optional; the marker mixin is only applied when `zenith_attributes` is installed.
+- Retains the 1.0.1 Extra Spell Attributes early-construction guard and all previous Spellblades compatibility fixes.

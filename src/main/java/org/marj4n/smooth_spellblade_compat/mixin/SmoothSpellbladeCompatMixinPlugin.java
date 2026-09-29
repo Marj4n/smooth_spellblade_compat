@@ -30,6 +30,12 @@ public final class SmoothSpellbladeCompatMixinPlugin implements IMixinConfigPlug
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
+        if (mixinClassName.endsWith("LivingEntityAttributeGuardMixin")) {
+            return FabricLoader.getInstance().isModLoaded("extraspellattributes");
+        }
+        if (mixinClassName.endsWith("ZenithAttributesLegacyMarkerMixin")) {
+            return FabricLoader.getInstance().isModLoaded("zenith_attributes");
+        }
         return FabricLoader.getInstance().isModLoaded("spellbladenext");
     }
 
