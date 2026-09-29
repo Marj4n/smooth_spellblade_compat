@@ -59,7 +59,7 @@ The migrated data still has behavior that needs runtime verification:
 
 See `docs/COMPAT_AUDIT.md` for the exact audit status.
 
-## 0.1.1 crash-chain patch
+## crash-chain patch
 
 Added Spell Power 1.6 bridge required by Spellblades 2.4.0:
 
@@ -72,7 +72,7 @@ Observed crash fixed by this patch:
 `NoSuchMethodError: SpellSchool.<init>(Archetype, Identifier, int, RegistryKey, EntityAttribute)`
 
 
-## 0.1.3 runtime compatibility fix
+## runtime compatibility fix
 
 - Bridges Spell Power 1.6.x removal of `SpellSchool.attribute` for legacy callers.
 - Runs the post-mixin bytecode adapter on Minecraft `AttributeContainer` after Extra Spell Attributes 1.4.0 injects its legacy field reads.
@@ -80,13 +80,13 @@ Observed crash fixed by this patch:
 - Uses the Minecraft 1.20.1 `Registry#getEntry(EntityAttribute)` return type directly.
 
 
-### 0.1.3 TargetHelper runtime fix
+### TargetHelper runtime fix
 - Removed invalid public-static TargetHelper mixin bridge rejected by Mixin 0.8.7.
 - Rewrites legacy TargetHelper getRelation/actionAllowed/allowedToHurt/targetsFromArea call sites to LegacyTargetAccess.
 - Added Spellblades effect.Challenged and entity.Magister to the post-transform coverage.
 - Replaced legacy SoundHelper public-static mixin with call-site bridge.
 - AnimationHelper legacy String overload is now injected by the config plugin before Spellblades' required mixin applies, avoiding the same Mixin 0.8.7 visibility trap.
 
-## 0.1.4 mutable legacy target lists
+## mutable legacy target lists
 
 Spell Engine 1.10 may provide immutable delivery target lists, while Spellblades 2.4 legacy custom handlers assume `CustomSpellHandler.Data.targets()` is mutable (for example `eviscerate` removes the caster from the list). The compatibility bridge now copies modern delivery targets into a mutable `ArrayList` before invoking every legacy custom handler.
