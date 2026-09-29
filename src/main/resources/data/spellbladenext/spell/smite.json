@@ -1,0 +1,81 @@
+{
+  "school": "spell_power:healing",
+  "range": 3.5,
+  "tier": 1,
+  "learn": {},
+  "group": "primary",
+  "active": {
+    "cast": {
+      "duration": 0.5,
+      "animation": {
+        "id": "spellbladenext:raise_lightning"
+      }
+    }
+  },
+  "target": {
+    "type": "AREA",
+    "area": {
+      "angle_degrees": 135,
+      "vertical_range_multiplier": 1
+    }
+  },
+  "deliver": {
+    "type": "CUSTOM",
+    "custom": {
+      "handler": "spellbladenext:smite"
+    }
+  },
+  "release": {
+    "animation": {
+      "id": "spellbladenext:two_handed_slam_spellblade_2"
+    },
+    "sound": {
+      "id": "minecraft:entity.player.attack.knockback"
+    },
+    "visuals": {
+      "particles": [
+        {
+          "id": "cloud",
+          "appearance": {},
+          "batch": {
+            "count": 130.0,
+            "shape": "CIRCLE",
+            "min_speed": 0.5,
+            "max_speed": 0.9,
+            "anchor": "ENTITY"
+          }
+        }
+      ]
+    }
+  },
+  "impacts": [
+    {
+      "school": "spell_power:physical_melee",
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 3,
+          "spell_power_coefficient": 1.0
+        }
+      }
+    },
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 1,
+          "spell_power_coefficient": 1.5
+        }
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 10
+    },
+    "item": {
+      "id": "runes:healing_stone"
+    },
+    "legacy_rpgmana": 30
+  }
+}

@@ -1,0 +1,1 @@
+package net.spell_engine.api.spell; public class Spell$Release$Target$Cloud { public Spell$Release$Target$Cloud$ClientData client_data=new Spell$Release$Target$Cloud$ClientData(); public Spell$Release$Target$Cloud(){} }

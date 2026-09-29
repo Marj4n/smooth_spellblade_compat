@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "spellbladenext:starfall",
+    "spellbladenext:echoes",
+    "spellbladenext:bladestorm",
+    "spellbladenext:eldritchblast"
+  ]
+}

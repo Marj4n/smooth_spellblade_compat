@@ -1,0 +1,91 @@
+{
+  "school": "spell_power:physical_melee",
+  "range": 4,
+  "tier": 2,
+  "learn": {},
+  "active": {
+    "cast": {
+      "movement_speed": 1.1,
+      "duration": 1.25,
+      "animation": {
+        "id": "spellbladenext:leapslamstaff1"
+      },
+      "sound": {
+        "id": "spell_engine:generic_frost_casting",
+        "randomness": 0
+      }
+    }
+  },
+  "target": {
+    "type": "AREA",
+    "area": {
+      "vertical_range_multiplier": 0.5
+    }
+  },
+  "release": {
+    "animation": {
+      "id": "spellbladenext:leapslamstaff2"
+    },
+    "sound": {
+      "id": "minecraft:entity.player.attack.crit"
+    },
+    "visuals": {
+      "particles": [
+        {
+          "id": "smoke",
+          "appearance": {},
+          "batch": {
+            "count": 40.0,
+            "shape": "CIRCLE",
+            "min_speed": 0.2,
+            "max_speed": 0.6,
+            "anchor": "ENTITY"
+          }
+        },
+        {
+          "id": "cloud",
+          "appearance": {},
+          "batch": {
+            "count": 120.0,
+            "shape": "CIRCLE",
+            "min_speed": 0.5,
+            "max_speed": 0.9,
+            "anchor": "ENTITY"
+          }
+        }
+      ]
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 2,
+          "spell_power_coefficient": 6
+        }
+      },
+      "sound": {
+        "id": "minecraft:entity.player.attack.crit"
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "poof",
+            "appearance": {},
+            "batch": {
+              "count": 3,
+              "shape": "SPHERE",
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 4
+    }
+  }
+}

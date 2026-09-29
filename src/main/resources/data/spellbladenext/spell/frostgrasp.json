@@ -1,0 +1,167 @@
+{
+  "school": "spell_power:frost",
+  "range": 8,
+  "tier": 1,
+  "learn": {},
+  "group": "primary",
+  "active": {
+    "cast": {
+      "duration": 0.5,
+      "animation": {
+        "id": "spell_engine:two_handed_channeling"
+      },
+      "sound": {
+        "id": "spell_engine:generic_frost_casting",
+        "randomness": 0
+      },
+      "particles": [
+        {
+          "id": "spell_engine:snowflake",
+          "appearance": {},
+          "batch": {
+            "count": 1.0,
+            "shape": "PIPE",
+            "min_speed": 0.05,
+            "max_speed": 0.1,
+            "anchor": "ENTITY",
+            "vertical_origin": 0.1
+          }
+        }
+      ]
+    }
+  },
+  "target": {
+    "type": "AIM",
+    "aim": {}
+  },
+  "deliver": {
+    "type": "METEOR",
+    "meteor": {
+      "launch_height": 6,
+      "launch_properties": {
+        "velocity": 1
+      },
+      "projectile": {
+        "client_data": {
+          "travel_particles": [
+            {
+              "id": "spell_engine:snowflake",
+              "appearance": {},
+              "batch": {
+                "count": 3,
+                "shape": "CIRCLE",
+                "min_speed": 0,
+                "max_speed": 0.1,
+                "anchor": "ENTITY",
+                "alignment": "LOOK"
+              }
+            },
+            {
+              "id": "spell_engine:frost_hit",
+              "appearance": {},
+              "batch": {
+                "count": 1,
+                "shape": "CIRCLE",
+                "min_speed": 0.1,
+                "max_speed": 0.2,
+                "anchor": "ENTITY",
+                "alignment": "LOOK"
+              }
+            },
+            {
+              "id": "spell_engine:snowflake",
+              "appearance": {},
+              "batch": {
+                "count": 10.0,
+                "shape": "CIRCLE",
+                "min_speed": 0.1,
+                "max_speed": 0.3,
+                "anchor": "ENTITY",
+                "vertical_origin": 0.1
+              }
+            }
+          ]
+        }
+      }
+    }
+  },
+  "release": {
+    "animation": {
+      "id": "spell_engine:one_handed_projectile_release"
+    },
+    "sound": {
+      "id": "spell_engine:generic_frost_release"
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 0,
+          "spell_power_coefficient": 0.2
+        }
+      },
+      "sound": {
+        "id": "spell_engine:generic_frost_release"
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "spell_engine:snowflake",
+            "appearance": {},
+            "batch": {
+              "count": 20.0,
+              "shape": "SPHERE",
+              "min_speed": 0.1,
+              "max_speed": 0.3,
+              "anchor": "ENTITY"
+            }
+          },
+          {
+            "id": "spell_engine:frost_hit",
+            "appearance": {},
+            "batch": {
+              "count": 15.0,
+              "shape": "SPHERE",
+              "min_speed": 0.2,
+              "max_speed": 0.4,
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "area_impact": {
+    "radius": 1.5,
+    "particles": [
+      {
+        "particle_id": "spell_engine:frost_hit",
+        "shape": "PIPE",
+        "origin": "FEET",
+        "count": 100.0,
+        "min_speed": 0.05,
+        "max_speed": 0.1
+      },
+      {
+        "particle_id": "spell_engine:snowflake",
+        "shape": "CIRCLE",
+        "origin": "FEET",
+        "count": 100.0,
+        "min_speed": 0.1,
+        "max_speed": 0.3
+      }
+    ],
+    "sound": {
+      "id": "minecraft:entity.wind_charge.wind_burst",
+      "volume": 1
+    }
+  },
+  "cost": {
+    "item": {
+      "id": "runes:frost_stone"
+    },
+    "legacy_rpgmana": 20
+  }
+}

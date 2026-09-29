@@ -1,0 +1,110 @@
+{
+  "school": "spell_power:arcane",
+  "range": 5,
+  "tier": 1,
+  "learn": {},
+  "active": {
+    "cast": {
+      "animation": {
+        "id": "spell_engine:one_handed_projectile_charge"
+      },
+      "duration": 0.5
+    }
+  },
+  "target": {
+    "type": "AREA",
+    "area": {
+      "angle_degrees": 360,
+      "vertical_range_multiplier": 1
+    }
+  },
+  "deliver": {
+    "type": "CUSTOM",
+    "custom": {
+      "handler": "spellbladenext:arcaneflourish"
+    }
+  },
+  "release": {
+    "animation": {
+      "id": "spellbladenext:flourish"
+    },
+    "sound": {
+      "id": "minecraft:entity.player.attack.knockback"
+    },
+    "visuals": {
+      "particles": [
+        {
+          "id": "spell_engine:arcane_hit",
+          "appearance": {},
+          "batch": {
+            "count": 20.0,
+            "shape": "SPHERE",
+            "min_speed": 0.2,
+            "max_speed": 0.6,
+            "anchor": "ENTITY"
+          }
+        },
+        {
+          "id": "firework",
+          "appearance": {},
+          "batch": {
+            "count": 30.0,
+            "shape": "SPHERE",
+            "min_speed": 0.2,
+            "max_speed": 0.4,
+            "anchor": "ENTITY"
+          }
+        }
+      ]
+    }
+  },
+  "impacts": [
+    {
+      "school": "spell_power:physical_melee",
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 1,
+          "spell_power_coefficient": 0.5
+        }
+      },
+      "sound": {
+        "id": "minecraft:entity.player.attack.sweep"
+      }
+    },
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 1,
+          "spell_power_coefficient": 1.2
+        }
+      },
+      "sound": {
+        "id": "minecraft:entity.player.attack.sweep"
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "sweep_attack",
+            "appearance": {},
+            "batch": {
+              "count": 1,
+              "shape": "SPHERE",
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 6
+    },
+    "item": {
+      "id": "runes:arcane_stone"
+    },
+    "legacy_rpgmana": 30
+  }
+}

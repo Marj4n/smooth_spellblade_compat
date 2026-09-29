@@ -1,0 +1,54 @@
+{
+  "school": "spell_power:healing",
+  "range": 12.0,
+  "tier": 1,
+  "learn": {},
+  "group": "primary",
+  "active": {
+    "cast": {
+      "duration": 0.5,
+      "animation": {
+        "id": "spell_engine:one_handed_projectile_charge"
+      },
+      "sound": {
+        "id": "spell_engine:generic_lightning_casting",
+        "randomness": 0
+      }
+    }
+  },
+  "target": {
+    "type": "AIM",
+    "aim": {}
+  },
+  "release": {
+    "animation": {
+      "id": "spell_engine:one_handed_shout_release"
+    },
+    "sound": {
+      "id": "spell_engine:generic_fire_release",
+      "volume": 0.5,
+      "pitch": 0.8
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "STATUS_EFFECT",
+        "status_effect": {
+          "effect_id": "minecraft:resistance",
+          "duration": 2,
+          "apply_mode": "SET",
+          "amplifier_power_multiplier": 1.5,
+          "amplifier": 0,
+          "show_particles": false
+        }
+      }
+    }
+  ],
+  "cost": {
+    "exhaust": 0.3,
+    "cooldown": {
+      "duration": 6
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "spell_container": {
+    "access": "MAGIC",
+    "max_spell_count": 4,
+    "spell_ids": [
+      "spellbladenext:staffstrike",
+      "spellbladenext:reckoning",
+      "spellbladenext:monkeyslam",
+      "spellbladenext:monkeyreflect"
+    ]
+  }
+}

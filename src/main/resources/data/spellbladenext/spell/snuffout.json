@@ -1,0 +1,110 @@
+{
+  "school": "spell_power:fire",
+  "range": 8,
+  "tier": 4,
+  "learn": {},
+  "active": {
+    "cast": {
+      "animation": {
+        "id": "spell_engine:one_handed_projectile_charge"
+      },
+      "sound": {
+        "id": "spell_engine:generic_fire_casting",
+        "randomness": 0
+      },
+      "duration": 0.25
+    }
+  },
+  "target": {
+    "type": "AREA",
+    "area": {
+      "vertical_range_multiplier": 0.5
+    }
+  },
+  "deliver": {
+    "type": "CUSTOM",
+    "custom": {
+      "handler": "spellbladenext:snuffout"
+    }
+  },
+  "release": {
+    "animation": {
+      "id": "spell_engine:one_handed_area_release"
+    },
+    "sound": {
+      "id": "spell_engine:generic_fire_release"
+    },
+    "visuals": {
+      "particles": [
+        {
+          "id": "spell_engine:flame",
+          "appearance": {},
+          "batch": {
+            "count": 40.0,
+            "shape": "CIRCLE",
+            "min_speed": 0.2,
+            "max_speed": 0.6,
+            "anchor": "ENTITY"
+          }
+        },
+        {
+          "id": "minecraft:smoke",
+          "appearance": {},
+          "batch": {
+            "count": 20.0,
+            "shape": "CIRCLE",
+            "min_speed": 0.5,
+            "max_speed": 0.9,
+            "anchor": "ENTITY"
+          }
+        }
+      ]
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 1,
+          "spell_power_coefficient": 1
+        }
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "spell_engine:fire_explosion",
+            "appearance": {},
+            "batch": {
+              "count": 1,
+              "shape": "SPHERE",
+              "min_speed": 0.2,
+              "max_speed": 0.7,
+              "anchor": "ENTITY"
+            }
+          },
+          {
+            "id": "spell_engine:flame",
+            "appearance": {},
+            "batch": {
+              "count": 40.0,
+              "shape": "CIRCLE",
+              "min_speed": 0.4,
+              "max_speed": 0.4,
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 8
+    },
+    "item": {
+      "id": "runes:fire_stone"
+    },
+    "legacy_rpgmana": 60
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "school": "spell_power:armor",
+  "range": 4.0,
+  "tier": 3,
+  "learn": {},
+  "active": {
+    "cast": {
+      "duration": 10,
+      "animation": {
+        "id": "spellbladenext:shieldslam"
+      },
+      "type": "CHANNEL",
+      "channel": {
+        "ticks": 20
+      }
+    }
+  },
+  "target": {
+    "type": "AREA",
+    "area": {
+      "vertical_range_multiplier": 1,
+      "include_caster": true
+    }
+  },
+  "deliver": {
+    "type": "CUSTOM",
+    "custom": {
+      "handler": "spellbladenext:defiance_of_destiny"
+    }
+  },
+  "release": {
+    "sound": {
+      "id": "minecraft:entity.player.attack.crit"
+    },
+    "visuals": {
+      "particles": [
+        {
+          "id": "smoke",
+          "appearance": {},
+          "batch": {
+            "count": 8.0,
+            "shape": "CIRCLE",
+            "min_speed": 0.2,
+            "max_speed": 0.6,
+            "anchor": "ENTITY"
+          }
+        },
+        {
+          "id": "cloud",
+          "appearance": {},
+          "batch": {
+            "count": 8.0,
+            "shape": "CIRCLE",
+            "min_speed": 0.5,
+            "max_speed": 0.9,
+            "anchor": "ENTITY"
+          }
+        }
+      ]
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 1.5,
+          "spell_power_coefficient": 0.8
+        }
+      },
+      "sound": {
+        "id": "minecraft:entity.player.attack.crit"
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "poof",
+            "appearance": {},
+            "batch": {
+              "count": 3,
+              "shape": "SPHERE",
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "action": {
+        "type": "STATUS_EFFECT",
+        "apply_to_caster": true,
+        "status_effect": {
+          "effect_id": "spellbladenext:defiance",
+          "duration": 2,
+          "apply_mode": "SET",
+          "amplifier": 5,
+          "show_particles": false
+        }
+      }
+    }
+  ],
+  "cost": {
+    "exhaust": 0.3,
+    "cooldown": {
+      "duration": 12,
+      "proportional": true
+    }
+  }
+}

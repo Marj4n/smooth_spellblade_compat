@@ -1,0 +1,98 @@
+{
+  "school": "spell_power:arcane",
+  "range": 16,
+  "tier": 2,
+  "learn": {},
+  "active": {
+    "cast": {
+      "duration": 0.2,
+      "animation": {
+        "id": "spell_engine:two_handed_channeling"
+      },
+      "sound": {
+        "id": "spell_engine:generic_arcane_casting",
+        "randomness": 0
+      },
+      "particles": [
+        {
+          "id": "spell_engine:arcane_spell",
+          "appearance": {},
+          "batch": {
+            "count": 1.0,
+            "shape": "PIPE",
+            "min_speed": 0.05,
+            "max_speed": 0.1,
+            "anchor": "ENTITY",
+            "vertical_origin": 0.1
+          }
+        }
+      ]
+    }
+  },
+  "target": {
+    "type": "AIM",
+    "aim": {}
+  },
+  "deliver": {
+    "type": "CUSTOM",
+    "custom": {
+      "handler": "spellbladenext:echoes"
+    }
+  },
+  "release": {
+    "animation": {
+      "id": "spell_engine:one_handed_projectile_release"
+    },
+    "sound": {
+      "id": "minecraft:entity.illusioner.cast_spell"
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "spell_power_coefficient": 0.65
+        },
+        "sound": {
+          "id": "minecraft:entity.illusioner.cast_spell"
+        }
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "spell_engine:arcane_hit",
+            "appearance": {},
+            "batch": {
+              "count": 30,
+              "shape": "SPHERE",
+              "min_speed": 0.2,
+              "max_speed": 0.7,
+              "anchor": "ENTITY"
+            }
+          },
+          {
+            "id": "firework",
+            "appearance": {},
+            "batch": {
+              "count": 20,
+              "shape": "SPHERE",
+              "min_speed": 0.05,
+              "max_speed": 0.2,
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 4
+    },
+    "item": {
+      "id": "runes:arcane_stone"
+    },
+    "legacy_rpgmana": 20
+  }
+}

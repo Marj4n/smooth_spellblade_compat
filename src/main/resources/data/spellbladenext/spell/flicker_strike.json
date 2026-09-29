@@ -1,0 +1,136 @@
+{
+  "school": "spell_power:fire",
+  "range": 12,
+  "tier": 3,
+  "learn": {},
+  "active": {
+    "cast": {
+      "duration": 2,
+      "animation": {
+        "id": "spell_engine:one_handed_projectile_charge"
+      },
+      "sound": {
+        "id": "spell_engine:generic_fire_casting",
+        "randomness": 0
+      },
+      "particles": [
+        {
+          "id": "spell_engine:flame",
+          "appearance": {},
+          "batch": {
+            "count": 1.0,
+            "shape": "PIPE",
+            "min_speed": 0.05,
+            "max_speed": 0.1,
+            "anchor": "ENTITY",
+            "vertical_origin": 0.1
+          }
+        }
+      ]
+    }
+  },
+  "target": {
+    "type": "AREA",
+    "area": {
+      "vertical_range_multiplier": 1.4
+    }
+  },
+  "deliver": {
+    "type": "CUSTOM",
+    "custom": {
+      "handler": "spellbladenext:flicker_strike"
+    }
+  },
+  "release": {
+    "visuals": {
+      "particles": [
+        {
+          "id": "spell_engine:flame",
+          "appearance": {},
+          "batch": {
+            "count": 60.0,
+            "shape": "PIPE",
+            "min_speed": 0.05,
+            "max_speed": 0.1,
+            "anchor": "ENTITY",
+            "vertical_origin": 0.1
+          }
+        }
+      ]
+    }
+  },
+  "impacts": [
+    {
+      "school": "spell_power:physical_melee",
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 0.5,
+          "spell_power_coefficient": 0.5
+        }
+      },
+      "sound": {
+        "id": "minecraft:entity.player.attack.sweep"
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "sweep_attack",
+            "appearance": {},
+            "batch": {
+              "count": 1,
+              "shape": "SPHERE",
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 0.5,
+          "spell_power_coefficient": 0.5
+        }
+      },
+      "sound": {
+        "id": "minecraft:entity.player.attack.sweep"
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "sweep_attack",
+            "appearance": {},
+            "batch": {
+              "count": 1,
+              "shape": "SPHERE",
+              "anchor": "ENTITY"
+            }
+          },
+          {
+            "id": "spell_engine:flame",
+            "appearance": {},
+            "batch": {
+              "count": 60.0,
+              "shape": "PIPE",
+              "min_speed": 0.05,
+              "max_speed": 0.1,
+              "anchor": "ENTITY",
+              "vertical_origin": 0.1
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 12
+    },
+    "item": {
+      "id": "runes:fire_stone"
+    },
+    "legacy_rpgmana": 60
+  }
+}

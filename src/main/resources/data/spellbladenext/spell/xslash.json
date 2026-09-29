@@ -1,0 +1,124 @@
+{
+  "school": "spell_power:lightning",
+  "range": 4,
+  "tier": 3,
+  "learn": {},
+  "active": {
+    "cast": {
+      "duration": 0.65,
+      "haste_affected": false,
+      "animation": {
+        "id": "spell_engine:doubleslashattack"
+      },
+      "sound": {
+        "id": "spell_engine:generic_lightning_casting"
+      },
+      "particles": [
+        {
+          "id": "spell_engine:electric_arc_a",
+          "appearance": {},
+          "batch": {
+            "count": 2.0,
+            "shape": "SPHERE",
+            "min_speed": 0,
+            "max_speed": 0,
+            "anchor": "ENTITY",
+            "vertical_origin": 0.1
+          }
+        },
+        {
+          "id": "spell_engine:electric_arc_b",
+          "appearance": {},
+          "batch": {
+            "count": 3.0,
+            "shape": "SPHERE",
+            "min_speed": 0,
+            "max_speed": 0,
+            "anchor": "ENTITY"
+          }
+        }
+      ],
+      "type": "CHANNEL",
+      "channel": {
+        "ticks": 7
+      }
+    }
+  },
+  "target": {
+    "type": "BEAM",
+    "beam": {}
+  },
+  "deliver": {
+    "type": "CUSTOM",
+    "custom": {
+      "handler": "spellbladenext:xslash"
+    }
+  },
+  "release": {
+    "animation": {
+      "id": "spell_engine:doubleslashending"
+    },
+    "sound": {
+      "id": "entity.player.attack.sweep"
+    }
+  },
+  "impacts": [
+    {
+      "school": "spell_power:physical_melee",
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 0.0,
+          "spell_power_coefficient": 2
+        }
+      }
+    },
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 0.0,
+          "spell_power_coefficient": 2
+        }
+      },
+      "sound": {
+        "id": "minecraft:entity.player.attack.sweep"
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "spell_engine:electric_arc_a",
+            "appearance": {},
+            "batch": {
+              "count": 20.0,
+              "shape": "SPHERE",
+              "min_speed": 0.2,
+              "max_speed": 0.6,
+              "anchor": "ENTITY"
+            }
+          },
+          {
+            "id": "spell_engine:smoke_medium",
+            "appearance": {},
+            "batch": {
+              "count": 30.0,
+              "shape": "SPHERE",
+              "min_speed": 0.5,
+              "max_speed": 0.9,
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 4
+    },
+    "item": {
+      "id": "runes:lightning_stone"
+    },
+    "legacy_rpgmana": 60
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "school": "spell_power:arcane",
+  "range": 12,
+  "tier": 3,
+  "learn": {},
+  "active": {
+    "cast": {
+      "duration": 6,
+      "animation": {
+        "id": "spellbladenext:flameslash"
+      },
+      "sound": {
+        "id": "spell_engine:generic_arcane_casting",
+        "randomness": 0
+      },
+      "type": "CHANNEL",
+      "channel": {
+        "ticks": 3
+      }
+    }
+  },
+  "target": {
+    "type": "AIM",
+    "aim": {}
+  },
+  "deliver": {
+    "type": "PROJECTILE",
+    "projectile": {
+      "launch_properties": {
+        "velocity": 3.0
+      },
+      "projectile": {
+        "homing_angle": 0,
+        "divergence": 15,
+        "perks": {
+          "pierce": 2
+        },
+        "client_data": {
+          "travel_particles": [
+            {
+              "id": "spell_engine:arcane_spell",
+              "appearance": {},
+              "batch": {
+                "count": 2.0,
+                "shape": "CIRCLE",
+                "min_speed": 0.05,
+                "max_speed": 0.1,
+                "anchor": "ENTITY",
+                "alignment": "LOOK"
+              }
+            },
+            {
+              "id": "firework",
+              "appearance": {},
+              "batch": {
+                "count": 2.0,
+                "shape": "CIRCLE",
+                "min_speed": 0.05,
+                "max_speed": 0.1,
+                "anchor": "ENTITY",
+                "alignment": "LOOK"
+              }
+            }
+          ],
+          "composite_model": {
+            "models": [
+              {
+                "fx": {
+                  "model_id": "spellbladenext:projectile/amethyst",
+                  "scale": 3
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "spell_power_coefficient": 1.8
+        }
+      },
+      "sound": {
+        "id": "spell_engine:generic_healing_impact_1"
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "spell_engine:arcane_hit",
+            "appearance": {},
+            "batch": {
+              "count": 40.0,
+              "shape": "SPHERE",
+              "min_speed": 0.2,
+              "max_speed": 0.7,
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 4,
+      "proportional": true
+    },
+    "item": {
+      "id": "runes:arcane_stone"
+    },
+    "legacy_rpgmana": 25
+  }
+}

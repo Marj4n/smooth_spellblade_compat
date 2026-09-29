@@ -1,0 +1,7 @@
+spells=80
+spell_tags=10
+assignments=16
+custom_deliveries=39
+legacy_rpgmana=32
+errors=0
+warnings=0

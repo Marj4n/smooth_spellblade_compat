@@ -1,0 +1,98 @@
+{
+  "school": "spell_power:lightning",
+  "range": 2.5,
+  "tier": 2,
+  "learn": {},
+  "active": {
+    "cast": {
+      "duration": 0.5,
+      "movement_speed": 2,
+      "haste_affected": false,
+      "animation": {
+        "id": "spell_engine:one_handed_area_charge"
+      },
+      "sound": {
+        "id": "spell_engine:generic_lightning_casting",
+        "randomness": 0
+      },
+      "particles": [
+        {
+          "id": "spell_engine:electric_arc_b",
+          "appearance": {},
+          "batch": {
+            "count": 20,
+            "shape": "SPHERE",
+            "min_speed": 0.1,
+            "max_speed": 0.1,
+            "pre_spawn_travel": 16,
+            "anchor": "ENTITY"
+          }
+        },
+        {
+          "id": "spell_engine:electric_arc_a",
+          "appearance": {},
+          "batch": {
+            "count": 20,
+            "shape": "SPHERE",
+            "min_speed": 0.1,
+            "max_speed": 0.1,
+            "pre_spawn_travel": 16,
+            "anchor": "ENTITY"
+          }
+        }
+      ],
+      "type": "CHANNEL",
+      "channel": {
+        "ticks": 2
+      }
+    }
+  },
+  "target": {
+    "type": "AREA",
+    "area": {
+      "vertical_range_multiplier": 1
+    }
+  },
+  "deliver": {
+    "type": "CUSTOM",
+    "custom": {
+      "handler": "spellbladenext:lightningstep"
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 0.5,
+          "spell_power_coefficient": 1.0
+        }
+      },
+      "sound": {
+        "id": "minecraft:entity.player.attack.sweep"
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "spell_engine:electric_arc_a",
+            "appearance": {},
+            "batch": {
+              "count": 3,
+              "shape": "SPHERE",
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 8
+    },
+    "item": {
+      "id": "runes:lightning_stone"
+    },
+    "legacy_rpgmana": 20
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "school": "spell_power:frost",
+  "range": 12,
+  "tier": 4,
+  "learn": {},
+  "active": {
+    "cast": {
+      "duration": 0.5,
+      "animation": {
+        "id": "spell_engine:two_handed_channeling"
+      },
+      "sound": {
+        "id": "spell_engine:generic_frost_casting",
+        "randomness": 0
+      },
+      "particles": [
+        {
+          "id": "spell_engine:snowflake",
+          "appearance": {},
+          "batch": {
+            "count": 1.0,
+            "shape": "PIPE",
+            "min_speed": 0.05,
+            "max_speed": 0.4,
+            "anchor": "ENTITY",
+            "vertical_origin": 0.1
+          }
+        }
+      ]
+    }
+  },
+  "target": {
+    "type": "AREA",
+    "area": {
+      "vertical_range_multiplier": 0.5
+    }
+  },
+  "deliver": {
+    "type": "CUSTOM",
+    "custom": {
+      "handler": "spellbladenext:coldbuff"
+    }
+  },
+  "release": {
+    "sound": {
+      "id": "spell_engine:generic_frost_release"
+    },
+    "visuals": {
+      "particles": [
+        {
+          "id": "spell_engine:snowflake",
+          "appearance": {},
+          "batch": {
+            "count": 60.0,
+            "shape": "PIPE",
+            "min_speed": 0.05,
+            "max_speed": 0.4,
+            "anchor": "ENTITY",
+            "vertical_origin": 0.1
+          }
+        }
+      ]
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 0,
+          "spell_power_coefficient": 0.2
+        }
+      },
+      "sound": {
+        "id": "spell_engine:generic_frost_release"
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "spell_engine:frost_hit",
+            "appearance": {},
+            "batch": {
+              "count": 100.0,
+              "shape": "PIPE",
+              "min_speed": 0.05,
+              "max_speed": 0.1,
+              "anchor": "ENTITY",
+              "vertical_origin": 0.1
+            }
+          },
+          {
+            "id": "spell_engine:snowflake",
+            "appearance": {},
+            "batch": {
+              "count": 100.0,
+              "shape": "CIRCLE",
+              "min_speed": 0.1,
+              "max_speed": 0.3,
+              "anchor": "ENTITY",
+              "vertical_origin": 0.1
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 16
+    },
+    "item": {
+      "id": "runes:frost_stone"
+    },
+    "legacy_rpgmana": 60
+  }
+}

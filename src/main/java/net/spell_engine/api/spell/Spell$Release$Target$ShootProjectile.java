@@ -1,0 +1,1 @@
+package net.spell_engine.api.spell; public class Spell$Release$Target$ShootProjectile { public Spell.LaunchProperties launch_properties=new Spell.LaunchProperties(); public Spell.ProjectileData projectile=new Spell.ProjectileData(); public boolean inherit_shooter_velocity=false; public Spell$Release$Target$ShootProjectile(){} }

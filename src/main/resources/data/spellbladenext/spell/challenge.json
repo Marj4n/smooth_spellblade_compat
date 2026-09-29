@@ -1,0 +1,73 @@
+{
+  "school": "spell_power:healing",
+  "range": 12.0,
+  "tier": 2,
+  "learn": {},
+  "active": {
+    "cast": {
+      "duration": 0
+    }
+  },
+  "target": {
+    "type": "AIM",
+    "aim": {}
+  },
+  "deliver": {
+    "type": "CUSTOM",
+    "custom": {
+      "handler": "spellbladenext:challenge"
+    }
+  },
+  "release": {
+    "animation": {
+      "id": "spell_engine:raise_lightning_short"
+    },
+    "sound": {
+      "id": "minecraft:entity.elder_guardian.curse",
+      "volume": 0.5,
+      "pitch": 1
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "STATUS_EFFECT",
+        "status_effect": {
+          "effect_id": "spellbladenext:challenged",
+          "duration": 12,
+          "apply_mode": "ADD"
+        }
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "spell_engine:weakness_smoke",
+            "appearance": {},
+            "batch": {
+              "count": 25.0,
+              "shape": "SPHERE",
+              "min_speed": 0.2,
+              "max_speed": 0.2,
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "spell_power_coefficient": 0.05,
+          "knockback": 0
+        }
+      }
+    }
+  ],
+  "cost": {
+    "exhaust": 0.3,
+    "cooldown": {
+      "duration": 24
+    }
+  }
+}

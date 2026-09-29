@@ -1,0 +1,173 @@
+{
+  "school": "spell_power:healing",
+  "range": 48.0,
+  "tier": 2,
+  "learn": {},
+  "active": {
+    "cast": {
+      "duration": 0.5,
+      "animation": {
+        "id": "spell_engine:one_handed_throw_charge"
+      },
+      "sound": {
+        "id": "spell_engine:generic_lightning_casting",
+        "randomness": 0
+      }
+    }
+  },
+  "target": {
+    "type": "AIM",
+    "aim": {}
+  },
+  "deliver": {
+    "type": "PROJECTILE",
+    "projectile": {
+      "launch_properties": {
+        "velocity": 4
+      },
+      "projectile": {
+        "homing_angle": 2.0,
+        "perks": {
+          "pierce": 10
+        },
+        "client_data": {
+          "travel_particles": [
+            {
+              "id": "spell_engine:holy_spark_mini",
+              "appearance": {},
+              "batch": {
+                "count": 3,
+                "shape": "SPHERE",
+                "min_speed": 0.1,
+                "max_speed": 0.4,
+                "angle": 60,
+                "anchor": "ENTITY"
+              }
+            },
+            {
+              "id": "spell_engine:holy_spark_mini",
+              "appearance": {},
+              "batch": {
+                "count": 1,
+                "shape": "SPHERE",
+                "min_speed": 0.1,
+                "max_speed": 0.4,
+                "anchor": "ENTITY"
+              }
+            },
+            {
+              "id": "spell_engine:holy_spark_mini",
+              "appearance": {},
+              "batch": {
+                "count": 1.0,
+                "shape": "SPHERE",
+                "min_speed": 0.05,
+                "max_speed": 0.3,
+                "angle": 75,
+                "anchor": "ENTITY"
+              }
+            },
+            {
+              "id": "spell_engine:holy_spark",
+              "appearance": {},
+              "batch": {
+                "count": 1.0,
+                "shape": "SPHERE",
+                "min_speed": 0.05,
+                "max_speed": 0.1,
+                "anchor": "ENTITY"
+              }
+            }
+          ],
+          "composite_model": {
+            "models": [
+              {
+                "fx": {
+                  "model_id": "spellbladenext:projectile/spear",
+                  "scale": 1,
+                  "rotate_degrees_per_tick": 0,
+                  "orientation": "TOWARDS_MOTION"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "release": {
+    "animation": {
+      "id": "spell_engine:one_handed_throw_release_instant"
+    },
+    "sound": {
+      "id": "minecraft:entity.player.attack.sweep"
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "STATUS_EFFECT",
+        "status_effect": {
+          "effect_id": "minecraft:weakness",
+          "duration": 2,
+          "apply_mode": "SET",
+          "amplifier": 1,
+          "show_particles": false
+        }
+      }
+    },
+    {
+      "action": {
+        "type": "STATUS_EFFECT",
+        "status_effect": {
+          "effect_id": "minecraft:slowness",
+          "duration": 2,
+          "apply_mode": "SET",
+          "amplifier": 1,
+          "show_particles": false
+        }
+      }
+    },
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "spell_power_coefficient": 0.8,
+          "knockback": 3
+        }
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "spell_engine:holy_hit",
+            "appearance": {},
+            "batch": {
+              "count": 15,
+              "shape": "SPHERE",
+              "min_speed": 0.2,
+              "max_speed": 0.7,
+              "anchor": "ENTITY"
+            }
+          },
+          {
+            "id": "spell_engine:holy_spark",
+            "appearance": {},
+            "batch": {
+              "count": 10,
+              "shape": "SPHERE",
+              "min_speed": 0.05,
+              "max_speed": 0.2,
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "exhaust": 0.3,
+    "cooldown": {
+      "duration": 6
+    }
+  }
+}

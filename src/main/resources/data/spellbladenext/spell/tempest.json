@@ -1,0 +1,97 @@
+{
+  "school": "spell_power:frost",
+  "range": 3.5,
+  "tier": 1,
+  "learn": {},
+  "active": {
+    "cast": {
+      "movement_speed": 1.1,
+      "duration": 8,
+      "animation": {
+        "id": "spellbladenext:spin"
+      },
+      "sound": {
+        "id": "spell_engine:generic_frost_casting",
+        "randomness": 0
+      },
+      "type": "CHANNEL",
+      "channel": {
+        "ticks": 4
+      }
+    }
+  },
+  "target": {
+    "type": "AREA",
+    "area": {
+      "vertical_range_multiplier": 0.5
+    }
+  },
+  "deliver": {
+    "type": "CUSTOM",
+    "custom": {
+      "handler": "spellbladenext:tempest"
+    }
+  },
+  "impacts": [
+    {
+      "school": "spell_power:physical_melee",
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 0.5,
+          "spell_power_coefficient": 1.0
+        }
+      },
+      "sound": {
+        "id": "minecraft:entity.player.attack.sweep"
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "sweep_attack",
+            "appearance": {},
+            "batch": {
+              "count": 1,
+              "shape": "SPHERE",
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 0.5,
+          "spell_power_coefficient": 1.4
+        }
+      },
+      "sound": {
+        "id": "minecraft:entity.player.attack.sweep"
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "sweep_attack",
+            "appearance": {},
+            "batch": {
+              "count": 1,
+              "shape": "SPHERE",
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 8
+    },
+    "item": {
+      "id": "runes:frost_stone"
+    },
+    "legacy_rpgmana": 20
+  }
+}
