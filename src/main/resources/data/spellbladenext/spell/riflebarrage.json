@@ -1,0 +1,78 @@
+{
+  "school": "spell_power:fire",
+  "range": 12,
+  "tier": 1,
+  "learn": {},
+  "active": {
+    "cast": {
+      "duration": 8,
+      "animation": {
+        "id": "spellbladenext:recoilloop"
+      },
+      "particles": [
+        {
+          "id": "spell_engine:flame",
+          "appearance": {},
+          "batch": {
+            "count": 1.0,
+            "shape": "PIPE",
+            "min_speed": 0.05,
+            "max_speed": 0.1,
+            "anchor": "ENTITY",
+            "vertical_origin": 0.1
+          }
+        }
+      ],
+      "type": "CHANNEL",
+      "channel": {
+        "ticks": 10
+      }
+    }
+  },
+  "target": {
+    "type": "AREA",
+    "area": {
+      "angle_degrees": 45,
+      "vertical_range_multiplier": 1
+    }
+  },
+  "deliver": {
+    "type": "CUSTOM",
+    "custom": {
+      "handler": "spellbladenext:riflebarrage"
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "spell_power_coefficient": 1.0
+        }
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "lava",
+            "appearance": {},
+            "batch": {
+              "count": 100.0,
+              "shape": "CIRCLE",
+              "min_speed": 3.0,
+              "max_speed": 18.0,
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 4
+    },
+    "item": {
+      "id": "runes:fire_stone"
+    }
+  }
+}

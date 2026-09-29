@@ -1,0 +1,71 @@
+{
+  "school": "spell_power:physical_melee",
+  "range": 6,
+  "tier": 1,
+  "learn": {},
+  "active": {
+    "cast": {
+      "haste_affected": false,
+      "duration": 0,
+      "sound": {
+        "id": "spell_engine:generic_frost_casting",
+        "randomness": 0
+      }
+    }
+  },
+  "target": {
+    "type": "AREA",
+    "area": {
+      "angle_degrees": 135,
+      "vertical_range_multiplier": 1
+    }
+  },
+  "deliver": {
+    "type": "CUSTOM",
+    "custom": {
+      "handler": "spellbladenext:staffstrike"
+    }
+  },
+  "release": {
+    "animation": {
+      "id": "spellbladenext:sword_swing_first"
+    },
+    "sound": {
+      "id": "minecraft:entity.player.attack.crit"
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 0.5,
+          "spell_power_coefficient": 1
+        }
+      },
+      "sound": {
+        "id": "minecraft:entity.player.attack.crit"
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "cloud",
+            "appearance": {},
+            "batch": {
+              "count": 20.0,
+              "shape": "SPHERE",
+              "min_speed": 0.5,
+              "max_speed": 0.9,
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 0.5
+    }
+  }
+}

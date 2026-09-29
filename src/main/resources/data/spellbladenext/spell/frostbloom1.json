@@ -1,0 +1,114 @@
+{
+  "school": "spell_power:frost",
+  "range": 6,
+  "tier": 2,
+  "learn": {},
+  "active": {
+    "cast": {
+      "duration": 1,
+      "animation": {
+        "id": "spell_engine:two_handed_channeling"
+      },
+      "sound": {
+        "id": "spell_engine:generic_frost_casting",
+        "randomness": 0
+      },
+      "particles": [
+        {
+          "id": "spell_engine:snowflake",
+          "appearance": {},
+          "batch": {
+            "count": 1.0,
+            "shape": "PIPE",
+            "min_speed": 0.05,
+            "max_speed": 0.1,
+            "anchor": "ENTITY",
+            "vertical_origin": 0.1
+          }
+        }
+      ]
+    }
+  },
+  "target": {
+    "type": "AREA",
+    "area": {
+      "vertical_range_multiplier": 0.5
+    }
+  },
+  "release": {
+    "sound": {
+      "id": "spell_engine:generic_frost_release"
+    },
+    "visuals": {
+      "particles": [
+        {
+          "id": "spell_engine:snowflake",
+          "appearance": {},
+          "batch": {
+            "count": 180.0,
+            "shape": "SPHERE",
+            "min_speed": 0.5,
+            "max_speed": 1.5,
+            "anchor": "ENTITY"
+          }
+        },
+        {
+          "id": "firework",
+          "appearance": {},
+          "batch": {
+            "count": 180,
+            "shape": "SPHERE",
+            "min_speed": 0.5,
+            "max_speed": 2,
+            "anchor": "ENTITY"
+          }
+        }
+      ]
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 0.5,
+          "spell_power_coefficient": 0.8
+        }
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "spell_engine:snowflake",
+            "appearance": {},
+            "batch": {
+              "count": 10,
+              "shape": "SPHERE",
+              "min_speed": 0.2,
+              "max_speed": 0.7,
+              "anchor": "ENTITY"
+            }
+          },
+          {
+            "id": "firework",
+            "appearance": {},
+            "batch": {
+              "count": 5,
+              "shape": "SPHERE",
+              "min_speed": 0.05,
+              "max_speed": 0.2,
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 1
+    },
+    "item": {
+      "id": "runes:frost_stone"
+    }
+  }
+}

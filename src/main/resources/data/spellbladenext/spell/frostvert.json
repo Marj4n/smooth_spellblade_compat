@@ -1,0 +1,127 @@
+{
+  "school": "spell_power:fire",
+  "range": 8,
+  "tier": 2,
+  "learn": {},
+  "active": {
+    "cast": {
+      "duration": 0,
+      "sound": {
+        "id": "spell_engine:generic_fire_casting",
+        "randomness": 0
+      },
+      "animation": {
+        "id": "spellbladenext:vertspin"
+      }
+    }
+  },
+  "target": {
+    "type": "AREA",
+    "area": {
+      "angle_degrees": 360,
+      "vertical_range_multiplier": 6
+    }
+  },
+  "deliver": {
+    "type": "CUSTOM",
+    "custom": {
+      "handler": "spellbladenext:frostvert"
+    }
+  },
+  "release": {
+    "animation": {
+      "id": "spellbladenext:two_handed_slam_spellblade_2"
+    },
+    "sound": {
+      "id": "minecraft:entity.player.attack.knockback"
+    },
+    "visuals": {
+      "particles": [
+        {
+          "id": "spell_engine:flame",
+          "appearance": {},
+          "batch": {
+            "count": 80.0,
+            "shape": "CIRCLE",
+            "min_speed": 0.5,
+            "max_speed": 0.6,
+            "anchor": "ENTITY"
+          }
+        },
+        {
+          "id": "minecraft:smoke",
+          "appearance": {},
+          "batch": {
+            "count": 40.0,
+            "shape": "CIRCLE",
+            "min_speed": 0.5,
+            "max_speed": 0.9,
+            "anchor": "ENTITY"
+          }
+        }
+      ]
+    }
+  },
+  "impacts": [
+    {
+      "school": "spell_power:physical_melee",
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 1,
+          "spell_power_coefficient": 1.0
+        }
+      },
+      "sound": {
+        "id": "minecraft:entity.player.attack.sweep"
+      }
+    },
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 1,
+          "spell_power_coefficient": 1.2
+        }
+      },
+      "sound": {
+        "id": "minecraft:entity.player.attack.sweep"
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "spell_engine:flame",
+            "appearance": {},
+            "batch": {
+              "count": 20.0,
+              "shape": "SPHERE",
+              "min_speed": 0.2,
+              "max_speed": 0.6,
+              "anchor": "ENTITY"
+            }
+          },
+          {
+            "id": "smoke",
+            "appearance": {},
+            "batch": {
+              "count": 30.0,
+              "shape": "SPHERE",
+              "min_speed": 0.5,
+              "max_speed": 0.9,
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 4
+    },
+    "item": {
+      "id": "runes:fire_stone"
+    },
+    "legacy_rpgmana": 25
+  }
+}

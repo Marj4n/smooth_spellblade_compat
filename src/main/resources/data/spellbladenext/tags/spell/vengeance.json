@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "spellbladenext:smite",
+    "spellbladenext:challenge",
+    "spellbladenext:soul_of_vengeance",
+    "spellbladenext:overpower"
+  ]
+}

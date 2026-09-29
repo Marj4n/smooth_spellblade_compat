@@ -1,0 +1,11 @@
+{
+  "spell_container": {
+    "access": "CONTAINED",
+    "spell_ids": [
+      "spellbladenext:maelstrom",
+      "spellbladenext:finalstrike",
+      "spellbladenext:eviscerate",
+      "spellbladenext:flicker_strike"
+    ]
+  }
+}

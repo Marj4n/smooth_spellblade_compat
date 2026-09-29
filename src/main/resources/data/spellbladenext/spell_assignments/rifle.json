@@ -1,0 +1,10 @@
+{
+  "spell_container": {
+    "access": "CONTAINED",
+    "spell_ids": [
+      "spellbladenext:sniper",
+      "spellbladenext:overblaze",
+      "spellbladenext:riflebarrage"
+    ]
+  }
+}

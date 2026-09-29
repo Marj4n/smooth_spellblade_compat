@@ -1,0 +1,118 @@
+{
+  "school": "spell_power:fire",
+  "range": 24,
+  "tier": 1,
+  "learn": {},
+  "group": "primary",
+  "active": {
+    "cast": {
+      "duration": 1,
+      "animation": {
+        "id": "spellbladenext:aim"
+      },
+      "sound": {
+        "id": "entity.warden.sonic_charge",
+        "randomness": 0
+      },
+      "particles": [
+        {
+          "id": "spell_engine:flame",
+          "appearance": {},
+          "batch": {
+            "count": 1.0,
+            "shape": "PIPE",
+            "min_speed": 0.05,
+            "max_speed": 0.1,
+            "anchor": "ENTITY",
+            "vertical_origin": 0.1
+          }
+        }
+      ]
+    }
+  },
+  "target": {
+    "type": "BEAM",
+    "beam": {}
+  },
+  "release": {
+    "animation": {
+      "id": "spellbladenext:recoil"
+    },
+    "sound": {
+      "id": "entity.blaze.shoot"
+    },
+    "visuals": {
+      "particles": [
+        {
+          "id": "spell_engine:flame",
+          "appearance": {},
+          "batch": {
+            "count": 100.0,
+            "shape": "CONE",
+            "min_speed": 0.1,
+            "max_speed": 2,
+            "angle": 5,
+            "anchor": "LAUNCH_POINT",
+            "alignment": "LOOK"
+          }
+        },
+        {
+          "id": "spell_engine:flame_medium_a",
+          "appearance": {},
+          "batch": {
+            "count": 30.0,
+            "shape": "CONE",
+            "min_speed": 0.1,
+            "max_speed": 2,
+            "angle": 5,
+            "anchor": "LAUNCH_POINT",
+            "alignment": "LOOK"
+          }
+        },
+        {
+          "id": "spell_engine:flame_medium_b",
+          "appearance": {},
+          "batch": {
+            "count": 30.0,
+            "shape": "CONE",
+            "min_speed": 0.1,
+            "max_speed": 0.1,
+            "angle": 40,
+            "anchor": "LAUNCH_POINT",
+            "alignment": "LOOK"
+          }
+        }
+      ]
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "spell_power_coefficient": 0.4
+        }
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "lava",
+            "appearance": {},
+            "batch": {
+              "count": 30.0,
+              "shape": "SPHERE",
+              "min_speed": 3.0,
+              "max_speed": 18.0,
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "item": {
+      "id": "runes:fire_stone"
+    }
+  }
+}

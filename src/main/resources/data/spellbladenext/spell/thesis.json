@@ -1,0 +1,35 @@
+{
+  "school": "spell_power:physical_melee",
+  "range": 64,
+  "tier": 4,
+  "learn": {},
+  "active": {
+    "cast": {
+      "duration": 0,
+      "type": "CHANNEL",
+      "channel": {
+        "ticks": 6
+      }
+    }
+  },
+  "target": {
+    "type": "CASTER"
+  },
+  "deliver": {
+    "type": "CUSTOM",
+    "custom": {
+      "handler": "spellbladenext:thesis"
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 4,
+          "spell_power_coefficient": 6
+        }
+      }
+    }
+  ]
+}

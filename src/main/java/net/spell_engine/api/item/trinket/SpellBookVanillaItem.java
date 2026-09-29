@@ -1,0 +1,1 @@
+package net.spell_engine.api.item.trinket; import net.minecraft.item.*; import net.minecraft.util.Identifier; public class SpellBookVanillaItem extends Item implements SpellBookItem { private final Identifier poolId; public SpellBookVanillaItem(Identifier id,Settings s){super(s);poolId=id;}public Identifier getPoolId(){return poolId;} }

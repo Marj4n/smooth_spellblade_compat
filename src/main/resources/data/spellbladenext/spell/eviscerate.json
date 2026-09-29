@@ -1,0 +1,102 @@
+{
+  "school": "spell_power:frost",
+  "range": 8.0,
+  "tier": 3,
+  "learn": {},
+  "active": {
+    "cast": {
+      "duration": 5,
+      "movement_speed": 1.1,
+      "haste_affected": false,
+      "animation": {
+        "id": "spellbladenext:staffspinloop"
+      },
+      "sound": {
+        "id": "minecraft:entity.player.attack.sweep",
+        "randomness": 0,
+        "pitch": 1.5
+      },
+      "particles": [
+        {
+          "id": "spell_engine:frost_hit",
+          "appearance": {},
+          "batch": {
+            "count": 5.0,
+            "shape": "SPHERE",
+            "min_speed": 0.2,
+            "max_speed": 0.6,
+            "anchor": "ENTITY"
+          }
+        }
+      ],
+      "type": "CHANNEL",
+      "channel": {
+        "ticks": 4
+      }
+    }
+  },
+  "target": {
+    "type": "AREA",
+    "area": {
+      "vertical_range_multiplier": 0.5
+    }
+  },
+  "deliver": {
+    "type": "CUSTOM",
+    "custom": {
+      "handler": "spellbladenext:eviscerate"
+    }
+  },
+  "impacts": [
+    {
+      "school": "spell_power:physical_melee",
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 0.5,
+          "spell_power_coefficient": 1.6
+        }
+      },
+      "sound": {
+        "id": "minecraft:entity.player.attack.sweep"
+      }
+    },
+    {
+      "school": "spell_power:frost",
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 0.5,
+          "spell_power_coefficient": 1.8
+        }
+      },
+      "sound": {
+        "id": "minecraft:entity.player.attack.sweep"
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "spell_engine:frost_hit",
+            "appearance": {},
+            "batch": {
+              "count": 20.0,
+              "shape": "SPHERE",
+              "min_speed": 0.2,
+              "max_speed": 0.6,
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 12
+    },
+    "item": {
+      "id": "runes:frost_stone"
+    },
+    "legacy_rpgmana": 25
+  }
+}

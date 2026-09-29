@@ -1,0 +1,150 @@
+{
+  "school": "spell_power:healing",
+  "range": 8.0,
+  "tier": 3,
+  "learn": {},
+  "active": {
+    "cast": {
+      "duration": 0.5,
+      "animation": {
+        "id": "spell_engine:one_handed_area_charge"
+      },
+      "sound": {
+        "id": "spell_engine:generic_healing_casting",
+        "randomness": 0
+      },
+      "particles": [
+        {
+          "id": "spell_engine:holy_ascend",
+          "appearance": {},
+          "batch": {
+            "count": 1.0,
+            "shape": "PIPE",
+            "min_speed": 0.05,
+            "max_speed": 0.1,
+            "anchor": "ENTITY",
+            "vertical_origin": 0.1
+          }
+        }
+      ]
+    }
+  },
+  "target": {
+    "type": "AREA",
+    "area": {
+      "vertical_range_multiplier": 0.6,
+      "include_caster": true
+    }
+  },
+  "release": {
+    "animation": {
+      "id": "spell_engine:one_handed_area_release"
+    },
+    "sound": {
+      "id": "spell_engine:generic_healing_release"
+    },
+    "visuals": {
+      "particles": [
+        {
+          "id": "spell_engine:holy_spark",
+          "appearance": {},
+          "batch": {
+            "count": 50.0,
+            "shape": "PILLAR",
+            "min_speed": 0.3,
+            "max_speed": 0.5,
+            "extent": 7.5,
+            "anchor": "ENTITY",
+            "vertical_origin": 0.1
+          }
+        },
+        {
+          "id": "spell_engine:holy_spell",
+          "appearance": {},
+          "batch": {
+            "count": 50.0,
+            "shape": "PILLAR",
+            "min_speed": 0.1,
+            "max_speed": 3,
+            "extent": 7.5,
+            "anchor": "ENTITY",
+            "vertical_origin": 0.1
+          }
+        },
+        {
+          "id": "spell_engine:holy_spark_mini",
+          "appearance": {},
+          "batch": {
+            "count": 100.0,
+            "shape": "PILLAR",
+            "min_speed": 0.1,
+            "max_speed": 0.2,
+            "extent": 7.5,
+            "anchor": "ENTITY",
+            "vertical_origin": 0.1
+          }
+        }
+      ]
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "HEAL",
+        "heal": {
+          "spell_power_coefficient": 0.5
+        }
+      },
+      "sound": {
+        "id": "spell_engine:generic_healing_impact_2"
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "spell_engine:healing_ascend",
+            "appearance": {},
+            "batch": {
+              "count": 15,
+              "shape": "PILLAR",
+              "min_speed": 0.02,
+              "max_speed": 0.15,
+              "anchor": "ENTITY",
+              "vertical_origin": 0.1
+            }
+          },
+          {
+            "id": "spell_engine:holy_ascend",
+            "appearance": {},
+            "batch": {
+              "count": 15,
+              "shape": "PILLAR",
+              "min_speed": 0.02,
+              "max_speed": 0.15,
+              "anchor": "ENTITY",
+              "vertical_origin": 0.1
+            }
+          }
+        ]
+      }
+    },
+    {
+      "action": {
+        "type": "STATUS_EFFECT",
+        "status_effect": {
+          "effect_id": "minecraft:absorption",
+          "duration": 4,
+          "apply_mode": "SET",
+          "amplifier": 0,
+          "amplifier_power_multiplier": 0.125,
+          "show_particles": false
+        }
+      }
+    }
+  ],
+  "cost": {
+    "exhaust": 0.3,
+    "cooldown": {
+      "duration": 2
+    }
+  }
+}

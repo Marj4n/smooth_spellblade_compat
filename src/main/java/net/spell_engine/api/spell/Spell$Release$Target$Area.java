@@ -1,0 +1,1 @@
+package net.spell_engine.api.spell; public class Spell$Release$Target$Area { public float horizontal_range_multiplier=1,vertical_range_multiplier=1,angle_degrees=0; public Spell$Release$Target$Area(){} }

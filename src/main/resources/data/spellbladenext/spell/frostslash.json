@@ -1,0 +1,118 @@
+{
+  "school": "spell_power:frost",
+  "range": 12,
+  "tier": 3,
+  "learn": {},
+  "active": {
+    "cast": {
+      "duration": 6,
+      "animation": {
+        "id": "spellbladenext:flameslash"
+      },
+      "sound": {
+        "id": "spell_engine:generic_frost_casting",
+        "randomness": 0
+      },
+      "type": "CHANNEL",
+      "channel": {
+        "ticks": 3
+      }
+    }
+  },
+  "target": {
+    "type": "AIM",
+    "aim": {}
+  },
+  "deliver": {
+    "type": "PROJECTILE",
+    "projectile": {
+      "launch_properties": {
+        "velocity": 3.0
+      },
+      "projectile": {
+        "homing_angle": 0,
+        "divergence": 15,
+        "perks": {
+          "ricochet": 2,
+          "bounce": 2
+        },
+        "client_data": {
+          "travel_particles": [
+            {
+              "id": "spell_engine:frost_shard",
+              "appearance": {},
+              "batch": {
+                "count": 2.0,
+                "shape": "CIRCLE",
+                "min_speed": 0.05,
+                "max_speed": 0.1,
+                "anchor": "ENTITY",
+                "alignment": "LOOK"
+              }
+            },
+            {
+              "id": "spell_engine:snowflake",
+              "appearance": {},
+              "batch": {
+                "count": 2.0,
+                "shape": "CIRCLE",
+                "min_speed": 0.05,
+                "max_speed": 0.1,
+                "anchor": "ENTITY",
+                "alignment": "LOOK"
+              }
+            }
+          ],
+          "composite_model": {
+            "models": [
+              {
+                "fx": {
+                  "model_id": "spellbladenext:projectile/gladius",
+                  "scale": 3
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "spell_power_coefficient": 1.8
+        }
+      },
+      "sound": {
+        "id": "spell_engine:generic_frost_impact"
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "spell_engine:frost_hit",
+            "appearance": {},
+            "batch": {
+              "count": 40.0,
+              "shape": "SPHERE",
+              "min_speed": 0.2,
+              "max_speed": 0.7,
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 4,
+      "proportional": true
+    },
+    "item": {
+      "id": "runes:frost_stone"
+    },
+    "legacy_rpgmana": 25
+  }
+}

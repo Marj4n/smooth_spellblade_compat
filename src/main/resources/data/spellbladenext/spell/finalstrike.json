@@ -1,0 +1,116 @@
+{
+  "school": "spell_power:arcane",
+  "range": 24,
+  "tier": 3,
+  "learn": {},
+  "active": {
+    "cast": {
+      "duration": 2,
+      "animation": {
+        "id": "spellbladenext:dual_handed_slash_cross"
+      },
+      "sound": {
+        "id": "entity.warden.sonic_charge"
+      },
+      "particles": [
+        {
+          "id": "spell_engine:arcane_hit",
+          "appearance": {},
+          "batch": {
+            "count": 2.0,
+            "shape": "SPHERE",
+            "min_speed": 0,
+            "max_speed": 0,
+            "anchor": "ENTITY",
+            "vertical_origin": 0.1
+          }
+        },
+        {
+          "id": "firework",
+          "appearance": {},
+          "batch": {
+            "count": 3.0,
+            "shape": "FEET",
+            "min_speed": 0,
+            "max_speed": 0,
+            "anchor": "ENTITY"
+          }
+        }
+      ]
+    }
+  },
+  "target": {
+    "type": "BEAM",
+    "beam": {}
+  },
+  "deliver": {
+    "type": "CUSTOM",
+    "custom": {
+      "handler": "spellbladenext:finalstrike"
+    }
+  },
+  "release": {
+    "animation": {
+      "id": "spellbladenext:dashslash"
+    },
+    "sound": {
+      "id": "entity.warden.sonic_boom"
+    }
+  },
+  "impacts": [
+    {
+      "school": "spell_power:physical_melee",
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 0.5,
+          "spell_power_coefficient": 0.5
+        }
+      }
+    },
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 0.5,
+          "spell_power_coefficient": 2
+        }
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "spell_engine:arcane_hit",
+            "appearance": {},
+            "batch": {
+              "count": 20.0,
+              "shape": "SPHERE",
+              "min_speed": 0.2,
+              "max_speed": 0.6,
+              "anchor": "ENTITY"
+            }
+          },
+          {
+            "id": "firework",
+            "appearance": {},
+            "batch": {
+              "count": 30.0,
+              "shape": "SPHERE",
+              "min_speed": 0.5,
+              "max_speed": 0.9,
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 8
+    },
+    "item": {
+      "id": "runes:arcane_stone"
+    },
+    "legacy_rpgmana": 60
+  }
+}

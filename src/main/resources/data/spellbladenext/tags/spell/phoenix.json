@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "spellbladenext:flamelance",
+    "spellbladenext:combustion",
+    "spellbladenext:phoenixdive",
+    "spellbladenext:snuffout"
+  ]
+}

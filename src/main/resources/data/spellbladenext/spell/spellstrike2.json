@@ -1,0 +1,50 @@
+{
+  "school": "spell_power:physical_melee",
+  "range": 12.0,
+  "tier": 0,
+  "learn": {},
+  "active": {
+    "cast": {
+      "haste_affected": false,
+      "duration": 0
+    }
+  },
+  "target": {
+    "type": "CASTER"
+  },
+  "deliver": {
+    "type": "CUSTOM",
+    "custom": {
+      "handler": "spellbladenext:spellstrike2"
+    }
+  },
+  "release": {
+    "animation": {
+      "id": "spell_engine:one_handed_projectile_release"
+    },
+    "sound": {
+      "id": "entity.elder_guardian.curse",
+      "volume": 0.5,
+      "pitch": 0.8
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "STATUS_EFFECT",
+        "status_effect": {
+          "effect_id": "spellbladenext:spellstrike",
+          "duration": 16,
+          "apply_mode": "SET",
+          "amplifier": 0
+        }
+      }
+    }
+  ],
+  "cost": {
+    "exhaust": 0.3,
+    "cooldown": {
+      "duration": 16
+    }
+  }
+}

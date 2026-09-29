@@ -1,0 +1,68 @@
+# Gradle
+.gradle/
+build/
+out/
+classes/
+
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+!gradlew
+!gradlew.bat
+
+local.properties
+gradle-local.properties
+
+# Minecraft / Fabric dev
+run/
+runs/
+logs/
+crash-reports/
+debug/
+*.log
+
+# JVM crash files
+hs_err_pid*
+replay_pid*
+*.hprof
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+*.launch
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temp / backup
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+*.orig
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Local archives
+*.zip
+*.rar
+*.7z
+
+!src/**/*.zip

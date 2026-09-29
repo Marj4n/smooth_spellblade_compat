@@ -1,0 +1,86 @@
+{
+  "school": "spell_power:fire",
+  "range": 6,
+  "tier": 1,
+  "learn": {},
+  "group": "primary",
+  "active": {
+    "cast": {
+      "duration": 1,
+      "animation": {
+        "id": "spell_engine:two_handed_channeling"
+      },
+      "sound": {
+        "id": "spell_engine:generic_fire_casting",
+        "randomness": 0
+      },
+      "particles": [
+        {
+          "id": "spell_engine:flame",
+          "appearance": {},
+          "batch": {
+            "count": 1.0,
+            "shape": "PIPE",
+            "min_speed": 0.05,
+            "max_speed": 0.1,
+            "anchor": "ENTITY",
+            "vertical_origin": 0.1
+          }
+        }
+      ]
+    }
+  },
+  "target": {
+    "type": "AIM",
+    "aim": {}
+  },
+  "release": {
+    "sound": {
+      "id": "spell_engine:generic_fire_release"
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 0.5,
+          "spell_power_coefficient": 0.8
+        }
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "spell_engine:flame",
+            "appearance": {},
+            "batch": {
+              "count": 10.0,
+              "shape": "PIPE",
+              "min_speed": 0.05,
+              "max_speed": 0.1,
+              "anchor": "ENTITY",
+              "vertical_origin": 0.1
+            }
+          },
+          {
+            "id": "smoke",
+            "appearance": {},
+            "batch": {
+              "count": 10.0,
+              "shape": "CIRCLE",
+              "min_speed": 0.1,
+              "max_speed": 0.3,
+              "anchor": "ENTITY",
+              "vertical_origin": 0.1
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 0
+    }
+  }
+}

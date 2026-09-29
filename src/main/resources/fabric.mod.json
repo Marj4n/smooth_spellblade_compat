@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "smooth_spellblade_compat",
+  "version": "${version}",
+  "name": "Smooth Spellblade Compat",
+  "description": "Compatibility layer for Spellblades and Such 2.4 on the modern Spell Engine stack used by Smooth Odyssey.",
+  "authors": ["Marj4n"],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["org.marj4n.smooth_spellblade_compat.SmoothSpellbladeCompat"],
+    "client": ["org.marj4n.smooth_spellblade_compat.client.SmoothSpellbladeCompatClient"]
+  },
+  "mixins": ["smooth_spellblade_compat.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "fabric-api": "*",
+    "minecraft": "1.20.1",
+    "java": ">=17",
+    "spell_engine": ">=1.10.7",
+    "spell_power": ">=1.6.0",
+    "spellbladenext": ">=2.4.0",
+    "extraspellattributes": ">=1.4.0"
+  }
+}

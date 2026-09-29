@@ -1,0 +1,44 @@
+{
+  "school": "spell_power:healing",
+  "range": 12.0,
+  "tier": 3,
+  "learn": {},
+  "active": {
+    "cast": {
+      "duration": 0
+    }
+  },
+  "target": {
+    "type": "CASTER"
+  },
+  "release": {
+    "animation": {
+      "id": "spell_engine:one_handed_shout_release"
+    },
+    "sound": {
+      "id": "minecraft:entity.iron_golem.repair",
+      "volume": 0.5,
+      "pitch": 0.8
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "STATUS_EFFECT",
+        "status_effect": {
+          "effect_id": "spellbladenext:fervor",
+          "duration": 8,
+          "apply_mode": "SET",
+          "amplifier": 4,
+          "show_particles": false
+        }
+      }
+    }
+  ],
+  "cost": {
+    "exhaust": 0.3,
+    "cooldown": {
+      "duration": 24
+    }
+  }
+}

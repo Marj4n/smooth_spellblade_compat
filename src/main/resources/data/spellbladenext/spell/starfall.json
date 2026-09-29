@@ -1,0 +1,145 @@
+{
+  "school": "spell_power:arcane",
+  "range": 32.0,
+  "tier": 1,
+  "learn": {},
+  "group": "primary",
+  "active": {
+    "cast": {
+      "duration": 0.5,
+      "animation": {
+        "id": "spell_engine:one_handed_sky_charge"
+      },
+      "sound": {
+        "id": "spell_engine:generic_arcane_casting",
+        "randomness": 0
+      },
+      "particles": [
+        {
+          "id": "spell_engine:arcane_spell",
+          "appearance": {},
+          "batch": {
+            "count": 0.5,
+            "shape": "PIPE",
+            "min_speed": 0.1,
+            "max_speed": 0.2,
+            "anchor": "ENTITY"
+          }
+        }
+      ]
+    }
+  },
+  "target": {
+    "type": "AIM",
+    "aim": {}
+  },
+  "deliver": {
+    "type": "METEOR",
+    "meteor": {
+      "launch_height": 10,
+      "launch_radius": 3,
+      "launch_properties": {
+        "velocity": 1,
+        "extra_launch_count": 3,
+        "extra_launch_delay": 4
+      },
+      "projectile": {
+        "divergence": 24,
+        "client_data": {
+          "travel_particles": [
+            {
+              "id": "spell_engine:arcane_spell",
+              "appearance": {},
+              "batch": {
+                "count": 3,
+                "shape": "CIRCLE",
+                "min_speed": 0,
+                "max_speed": 0.1,
+                "anchor": "ENTITY",
+                "alignment": "LOOK"
+              }
+            },
+            {
+              "id": "spell_engine:arcane_hit",
+              "appearance": {},
+              "batch": {
+                "count": 1,
+                "shape": "CIRCLE",
+                "min_speed": 0.1,
+                "max_speed": 0.2,
+                "anchor": "ENTITY",
+                "alignment": "LOOK"
+              }
+            }
+          ],
+          "composite_model": {
+            "models": [
+              {
+                "fx": {
+                  "model_id": "minecraft:amethyst_block",
+                  "scale": 0.4
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "release": {
+    "sound": {
+      "id": "minecraft:entity.illusioner.cast_spell"
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "spell_power_coefficient": 0.6,
+          "knockback": 0.2
+        }
+      },
+      "sound": {
+        "id": "spell_engine:generic_arcane_impact"
+      }
+    }
+  ],
+  "area_impact": {
+    "radius": 3,
+    "area": {
+      "distance_dropoff": "SQUARED"
+    },
+    "particles": [
+      {
+        "particle_id": "firework",
+        "shape": "SPHERE",
+        "origin": "CENTER",
+        "count": 20.0,
+        "min_speed": 0.1,
+        "max_speed": 0.3
+      },
+      {
+        "particle_id": "spell_engine:arcane_hit",
+        "shape": "SPHERE",
+        "origin": "CENTER",
+        "count": 15.0,
+        "min_speed": 0.2,
+        "max_speed": 0.4
+      }
+    ],
+    "sound": {
+      "id": "minecraft:entity.wind_charge.wind_burst",
+      "volume": 1
+    }
+  },
+  "cost": {
+    "exhaust": 0.2,
+    "cooldown": {
+      "duration": 4
+    },
+    "item": {
+      "id": "runes:arcane_stone"
+    }
+  }
+}

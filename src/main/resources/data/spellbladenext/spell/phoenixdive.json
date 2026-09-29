@@ -1,0 +1,104 @@
+{
+  "school": "spell_power:fire",
+  "range": 16,
+  "tier": 3,
+  "learn": {},
+  "active": {
+    "cast": {
+      "animation": {
+        "id": "spellbladenext:phoenixdive"
+      },
+      "sound": {
+        "id": "spell_engine:generic_fire_casting",
+        "randomness": 0
+      },
+      "duration": 1
+    }
+  },
+  "target": {
+    "type": "AREA",
+    "area": {
+      "vertical_range_multiplier": 0.5
+    }
+  },
+  "deliver": {
+    "type": "CUSTOM",
+    "custom": {
+      "handler": "spellbladenext:phoenixdive"
+    }
+  },
+  "release": {
+    "sound": {
+      "id": "spell_engine:generic_fire_release"
+    },
+    "visuals": {
+      "particles": [
+        {
+          "id": "spell_engine:flame",
+          "appearance": {},
+          "batch": {
+            "count": 80.0,
+            "shape": "CIRCLE",
+            "min_speed": 0.5,
+            "max_speed": 0.6,
+            "anchor": "ENTITY"
+          }
+        },
+        {
+          "id": "minecraft:smoke",
+          "appearance": {},
+          "batch": {
+            "count": 40.0,
+            "shape": "CIRCLE",
+            "min_speed": 0.5,
+            "max_speed": 0.9,
+            "anchor": "ENTITY"
+          }
+        }
+      ]
+    }
+  },
+  "impacts": [
+    {
+      "action": {
+        "type": "DAMAGE",
+        "damage": {
+          "knockback": 0.5,
+          "spell_power_coefficient": 0.5
+        }
+      },
+      "visuals": {
+        "particles": [
+          {
+            "id": "spell_engine:flame",
+            "appearance": {},
+            "batch": {
+              "count": 30,
+              "shape": "SPHERE",
+              "min_speed": 0.2,
+              "max_speed": 0.7,
+              "anchor": "ENTITY"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "action": {
+        "type": "FIRE",
+        "fire": {
+          "duration": 2
+        }
+      }
+    }
+  ],
+  "cost": {
+    "cooldown": {
+      "duration": 8
+    },
+    "item": {
+      "id": "runes:fire_stone"
+    },
+    "legacy_rpgmana": 30
+  }
+}
