@@ -8,7 +8,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = World.class, priority = 100)
-public abstract class WorldSchedulerMarkerMixin implements net.spell_engine.internals.WorldScheduler {
+public abstract class WorldSchedulerMarkerMixin
+        implements net.spell_engine.internals.WorldScheduler {
     @Inject(method = "<init>", at = @At("RETURN"), require = 0)
     private void smoothSpellbladeCompat$rememberWorld(CallbackInfo ci) {
         LegacyRuntimeContext.note((World) (Object) this);

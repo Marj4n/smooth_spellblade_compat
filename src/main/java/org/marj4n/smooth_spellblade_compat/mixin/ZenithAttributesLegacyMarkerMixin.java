@@ -10,7 +10,8 @@ import org.spongepowered.asm.mixin.Pseudo;
  * attributeEntry / ownedAttribute instead.
  */
 @Pseudo
-@Mixin(targets = {
-        "dev.shadowsoffire.attributeslib.compat.SpellPowerCompat"
-}, priority = 100, remap = false)
-public abstract class ZenithAttributesLegacyMarkerMixin { }
+@Mixin(
+        targets = {"dev.shadowsoffire.attributeslib.compat.SpellPowerCompat"},
+        priority = 100,
+        remap = false)
+public abstract class ZenithAttributesLegacyMarkerMixin {}

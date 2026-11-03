@@ -11,11 +11,12 @@ import java.util.ArrayList;
 
 /** Legacy container facade backed by Spell Engine 1.10's container API. */
 public final class SpellContainerHelper {
-    private SpellContainerHelper() { }
+    private SpellContainerHelper() {}
 
     public static SpellContainer containerFromItemStack(ItemStack itemStack) {
         return SpellContainer.fromModern(
-                net.spell_engine.api.spell.container.SpellContainerHelper.containerFromItemStack(itemStack));
+                net.spell_engine.api.spell.container.SpellContainerHelper.containerFromItemStack(
+                        itemStack));
     }
 
     /**
@@ -35,7 +36,9 @@ public final class SpellContainerHelper {
     }
 
     public static SpellContainer getAvailable(PlayerEntity player) {
-        return player == null ? null : SpellContainer.fromModern(SpellContainerSource.activeContainerOf(player));
+        return player == null
+                ? null
+                : SpellContainer.fromModern(SpellContainerSource.activeContainerOf(player));
     }
 
     public static void addContainerToItemStack(SpellContainer container, ItemStack itemStack) {
@@ -45,7 +48,9 @@ public final class SpellContainerHelper {
     }
 
     public static void addSpell(Identifier spellId, ItemStack itemStack) {
-        var modern = net.spell_engine.api.spell.container.SpellContainerHelper.containerFromItemStack(itemStack);
+        var modern =
+                net.spell_engine.api.spell.container.SpellContainerHelper.containerFromItemStack(
+                        itemStack);
         if (modern == null) return;
         var ids = new ArrayList<>(modern.spell_ids());
         if (!ids.contains(spellId.toString())) ids.add(spellId.toString());
@@ -53,11 +58,14 @@ public final class SpellContainerHelper {
     }
 
     public static boolean contains(SpellContainer container, Identifier spellId) {
-        return container != null && container.spell_ids != null && container.spell_ids.contains(spellId.toString());
+        return container != null
+                && container.spell_ids != null
+                && container.spell_ids.contains(spellId.toString());
     }
 
     public static Identifier getPoolId(SpellContainer container) {
         return container == null || container.pool == null || container.pool.isBlank()
-                ? null : new Identifier(container.pool);
+                ? null
+                : new Identifier(container.pool);
     }
 }

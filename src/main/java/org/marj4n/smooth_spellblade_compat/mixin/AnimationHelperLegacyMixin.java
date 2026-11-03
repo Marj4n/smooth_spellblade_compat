@@ -9,4 +9,4 @@ import org.spongepowered.asm.mixin.Mixin;
  * Spellblades' required AnimationHelperMixin is processed.
  */
 @Mixin(value = AnimationHelper.class, priority = 2000)
-public abstract class AnimationHelperLegacyMixin { }
+public abstract class AnimationHelperLegacyMixin {}

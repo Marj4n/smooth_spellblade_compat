@@ -7,7 +7,7 @@ import net.spell_engine.utils.SoundHelper;
 
 /** Bridges Spell Engine V1 SoundHelper calls to the modern fx.Sound API. */
 public final class LegacySoundAccess {
-    private LegacySoundAccess() { }
+    private LegacySoundAccess() {}
 
     public static void playSound(World world, Entity entity, Sound sound) {
         if (sound != null) {

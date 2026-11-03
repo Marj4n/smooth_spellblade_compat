@@ -16,8 +16,7 @@ import org.jetbrains.annotations.Nullable;
  */
 public final class LegacySpellPowerAccess {
 
-    private LegacySpellPowerAccess() {
-    }
+    private LegacySpellPowerAccess() {}
 
     /**
      * Spell Power V1 constructor used by Spellblades:
@@ -32,22 +31,14 @@ public final class LegacySpellPowerAccess {
             Identifier id,
             int color,
             RegistryKey<DamageType> damageType,
-            EntityAttribute attribute
-    ) {
+            EntityAttribute attribute) {
         if (attribute != null) {
             RegistryEntry<EntityAttribute> entry = Registries.ATTRIBUTE.getEntry(attribute);
             return new SpellSchool(archetype, id, color, damageType, entry);
         }
 
         // Legacy fallback for callers that provide no attribute.
-        return new SpellSchool(
-                archetype,
-                id,
-                color,
-                damageType,
-                (EntityAttribute) null,
-                null
-        );
+        return new SpellSchool(archetype, id, color, damageType, (EntityAttribute) null, null);
     }
 
     /**

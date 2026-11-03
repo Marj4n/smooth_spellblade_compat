@@ -22,8 +22,7 @@ public abstract class SpellAssignmentsLegacyMixin {
     private static void smoothSpellbladeCompat$parseLegacyAssignment(
             Identifier fileId,
             JsonElement root,
-            CallbackInfoReturnable<SpellAssignments.Assignment> cir
-    ) {
+            CallbackInfoReturnable<SpellAssignments.Assignment> cir) {
         if (root == null || !root.isJsonObject()) return;
         JsonObject object = root.getAsJsonObject();
 
@@ -42,12 +41,12 @@ public abstract class SpellAssignmentsLegacyMixin {
         }
 
         boolean proxy = object.has("is_proxy") && object.get("is_proxy").getAsBoolean();
-        int maxSpellCount = object.has("max_spell_count")
-                ? object.get("max_spell_count").getAsInt()
-                : 0;
-        String pool = object.has("pool") && !object.get("pool").isJsonNull()
-                ? object.get("pool").getAsString()
-                : "";
+        int maxSpellCount =
+                object.has("max_spell_count") ? object.get("max_spell_count").getAsInt() : 0;
+        String pool =
+                object.has("pool") && !object.get("pool").isJsonNull()
+                        ? object.get("pool").getAsString()
+                        : "";
 
         var spellIds = new ArrayList<String>();
         if (object.has("spell_ids") && object.get("spell_ids").isJsonArray()) {
@@ -58,19 +57,10 @@ public abstract class SpellAssignmentsLegacyMixin {
 
         // V1 proxy containers merged MAGIC sources by default (the old `content` default).
         // V1 non-proxy containers cast only their own assigned spells.
-        var access = proxy
-                ? SpellContainer.ContentType.MAGIC
-                : SpellContainer.ContentType.CONTAINED;
+        var access =
+                proxy ? SpellContainer.ContentType.MAGIC : SpellContainer.ContentType.CONTAINED;
 
-        var container = new SpellContainer(
-                access,
-                "",
-                pool,
-                "",
-                maxSpellCount,
-                spellIds,
-                0
-        );
+        var container = new SpellContainer(access, "", pool, "", maxSpellCount, spellIds, 0);
         cir.setReturnValue(new SpellAssignments.Assignment(container, null));
     }
 }

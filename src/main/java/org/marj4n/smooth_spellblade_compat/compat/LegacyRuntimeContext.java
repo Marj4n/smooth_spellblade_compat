@@ -12,7 +12,7 @@ public final class LegacyRuntimeContext {
     private static final ThreadLocal<World> CURRENT_WORLD = new ThreadLocal<>();
     private static volatile WeakReference<World> lastWorld = new WeakReference<>(null);
 
-    private LegacyRuntimeContext() { }
+    private LegacyRuntimeContext() {}
 
     public static Scope enter(World world) {
         World previous = CURRENT_WORLD.get();
@@ -41,6 +41,7 @@ public final class LegacyRuntimeContext {
 
     @FunctionalInterface
     public interface Scope extends AutoCloseable {
-        @Override void close();
+        @Override
+        void close();
     }
 }

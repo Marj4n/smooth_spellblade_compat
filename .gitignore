@@ -1,6 +1,6 @@
 # Gradle
 .gradle/
-build/
+/build/
 out/
 classes/
 
@@ -66,3 +66,11 @@ desktop.ini
 *.7z
 
 !src/**/*.zip
+/.gradle/
+/.idea/
+/out/
+/run/
+/runs/
+/common/build/
+/fabric/build/
+/forge/build/

@@ -30,10 +30,11 @@ public final class SpellRegistry {
 
     private static final Gson GSON = new Gson();
     private static final Map<Identifier, Spell> BOOTSTRAP = new ConcurrentHashMap<>();
-    private static final Map<Spell, Identifier> REVERSE = Collections.synchronizedMap(new WeakHashMap<>());
+    private static final Map<Spell, Identifier> REVERSE =
+            Collections.synchronizedMap(new WeakHashMap<>());
     private static final Map<Identifier, SpellPool> POOLS = new ConcurrentHashMap<>();
 
-    private SpellRegistry() { }
+    private SpellRegistry() {}
 
     public static Spell getSpell(Identifier id) {
         var world = LegacyRuntimeContext.world();
@@ -67,7 +68,8 @@ public final class SpellRegistry {
             try {
                 spell = GSON.fromJson(modernRoot, Spell.class);
             } catch (Throwable t) {
-                SmoothSpellbladeCompat.LOGGER.warn("Could not bootstrap modern spell {}: {}", id, t.toString());
+                SmoothSpellbladeCompat.LOGGER.warn(
+                        "Could not bootstrap modern spell {}: {}", id, t.toString());
             }
         }
         if (spell == null) {
@@ -92,14 +94,19 @@ public final class SpellRegistry {
     private static void hydrateLegacyFields(Identifier id, Spell spell, JsonObject root) {
         try {
             if (root.has("cast")) {
-                Object cast = GSON.fromJson(root.get("cast"), Class.forName("net.spell_engine.api.spell.Spell$Cast"));
+                Object cast =
+                        GSON.fromJson(
+                                root.get("cast"),
+                                Class.forName("net.spell_engine.api.spell.Spell$Cast"));
                 setField(spell, "cast", cast);
             }
 
             var impacts = spell.impacts != null ? spell.impacts : List.<Spell.Impact>of();
             setField(spell, "impact", impacts.toArray(new Spell.Impact[0]));
-            JsonArray oldImpacts = root.has("impact") && root.get("impact").isJsonArray()
-                    ? root.getAsJsonArray("impact") : new JsonArray();
+            JsonArray oldImpacts =
+                    root.has("impact") && root.get("impact").isJsonArray()
+                            ? root.getAsJsonArray("impact")
+                            : new JsonArray();
             for (int i = 0; i < impacts.size() && i < oldImpacts.size(); i++) {
                 var old = oldImpacts.get(i).getAsJsonObject();
                 if (old.has("particles")) {
@@ -111,14 +118,22 @@ public final class SpellRegistry {
             if (root.has("release")) {
                 var oldRelease = root.getAsJsonObject("release");
                 if (oldRelease.has("target")) {
-                    Object target = GSON.fromJson(oldRelease.get("target"), Class.forName("net.spell_engine.api.spell.Spell$Release$Target"));
+                    Object target =
+                            GSON.fromJson(
+                                    oldRelease.get("target"),
+                                    Class.forName(
+                                            "net.spell_engine.api.spell.Spell$Release$Target"));
                     setField(spell.release, "target", target);
                 }
                 if (oldRelease.has("particles")) {
-                    setField(spell.release, "particles", GSON.fromJson(oldRelease.get("particles"), ParticleBatch[].class));
+                    setField(
+                            spell.release,
+                            "particles",
+                            GSON.fromJson(oldRelease.get("particles"), ParticleBatch[].class));
                 }
                 if (oldRelease.has("animation") && oldRelease.get("animation").isJsonPrimitive()) {
-                    LegacySpellAccess.rememberReleaseAnimation(spell.release, oldRelease.get("animation").getAsString());
+                    LegacySpellAccess.rememberReleaseAnimation(
+                            spell.release, oldRelease.get("animation").getAsString());
                 }
             }
 
@@ -128,15 +143,16 @@ public final class SpellRegistry {
             }
             REVERSE.put(spell, id);
         } catch (Throwable t) {
-            SmoothSpellbladeCompat.LOGGER.warn("Could not hydrate V1 fields for {}: {}", id, t.toString());
+            SmoothSpellbladeCompat.LOGGER.warn(
+                    "Could not hydrate V1 fields for {}: {}", id, t.toString());
         }
     }
 
-    private static void setField(Object target, String name, Object value) throws ReflectiveOperationException {
+    private static void setField(Object target, String name, Object value)
+            throws ReflectiveOperationException {
         var field = target.getClass().getField(name);
         field.set(target, value);
     }
-
 
     private static JsonObject readModernCompatSpellJson(Identifier id) {
         String path = "data/" + id.getNamespace() + "/spell/" + id.getPath() + ".json";
@@ -155,14 +171,16 @@ public final class SpellRegistry {
         try {
             List<Identifier> ids = new ArrayList<>();
             if (root.has("spell_ids")) {
-                for (JsonElement e : root.getAsJsonArray("spell_ids")) ids.add(new Identifier(e.getAsString()));
+                for (JsonElement e : root.getAsJsonArray("spell_ids"))
+                    ids.add(new Identifier(e.getAsString()));
             }
             boolean craftable;
             if (root.has("craftable")) {
                 craftable = root.get("craftable").getAsBoolean();
             } else {
-                craftable = !root.has("creatable_as_spellbook")
-                        || root.get("creatable_as_spellbook").getAsBoolean();
+                craftable =
+                        !root.has("creatable_as_spellbook")
+                                || root.get("creatable_as_spellbook").getAsBoolean();
             }
             return new SpellPool(ids, List.of(), craftable);
         } catch (Exception e) {

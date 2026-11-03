@@ -12,7 +12,7 @@ public final class LegacySpellAccess {
     private static final Map<Spell.Release, String> RELEASE_ANIMATIONS =
             Collections.synchronizedMap(new WeakHashMap<>());
 
-    private LegacySpellAccess() { }
+    private LegacySpellAccess() {}
 
     public static void rememberReleaseAnimation(Spell.Release release, String animation) {
         if (release != null && animation != null) RELEASE_ANIMATIONS.put(release, animation);

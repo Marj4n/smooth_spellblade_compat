@@ -25,31 +25,41 @@ public final class CustomSpellHandler {
             ItemStack itemStack,
             SpellCast.Action action,
             float progress,
-            SpellHelper.ImpactContext impactContext
-    ) { }
+            SpellHelper.ImpactContext impactContext) {}
 
-    private CustomSpellHandler() { }
+    private CustomSpellHandler() {}
 
     public static void register(Identifier id, Function<Data, Boolean> handler) {
         handlers.put(id, handler);
-        SpellHandlers.registerCustomDelivery(id, (world, entry, caster, targets, context, location) -> {
-            if (!(caster instanceof PlayerEntity player)) return false;
-            try (var ignored = LegacyRuntimeContext.enter(world)) {
-                var entities = new ArrayList<>(targets.stream()
-                        .map(net.spell_engine.internals.SpellExecution.DeliveryTarget::entity)
-                        .toList());
-                var action = context.isChanneled() ? SpellCast.Action.CHANNEL : SpellCast.Action.RELEASE;
-                var oldContext = SpellHelper.ImpactContext.fromModern(context);
-                var result = handler.get(new Data(
-                        player,
-                        entities,
-                        player.getMainHandStack(),
-                        action,
-                        context.charge(),
-                        oldContext
-                ));
-                return Boolean.TRUE.equals(result);
-            }
-        });
+        SpellHandlers.registerCustomDelivery(
+                id,
+                (world, entry, caster, targets, context, location) -> {
+                    if (!(caster instanceof PlayerEntity player)) return false;
+                    try (var ignored = LegacyRuntimeContext.enter(world)) {
+                        var entities =
+                                new ArrayList<>(
+                                        targets.stream()
+                                                .map(
+                                                        net.spell_engine.internals.SpellExecution
+                                                                        .DeliveryTarget
+                                                                ::entity)
+                                                .toList());
+                        var action =
+                                context.isChanneled()
+                                        ? SpellCast.Action.CHANNEL
+                                        : SpellCast.Action.RELEASE;
+                        var oldContext = SpellHelper.ImpactContext.fromModern(context);
+                        var result =
+                                handler.get(
+                                        new Data(
+                                                player,
+                                                entities,
+                                                player.getMainHandStack(),
+                                                action,
+                                                context.charge(),
+                                                oldContext));
+                        return Boolean.TRUE.equals(result);
+                    }
+                });
     }
 }

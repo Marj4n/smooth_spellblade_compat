@@ -7,7 +7,7 @@ import net.spell_engine.internals.casting.SpellCaster;
 import net.spell_engine.internals.casting.SpellCasterEntity;
 
 public final class LegacyCastingAccess {
-    private LegacyCastingAccess() { }
+    private LegacyCastingAccess() {}
 
     public static SpellCooldownManager cooldownManager(SpellCasterEntity caster) {
         var modernCaster = (SpellCaster.Player) caster;

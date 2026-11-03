@@ -10,7 +10,8 @@ public final class SpellCooldownManager {
     private final World world;
     private final net.spell_engine.internals.cost.SpellCooldownManager delegate;
 
-    public SpellCooldownManager(World world, net.spell_engine.internals.cost.SpellCooldownManager delegate) {
+    public SpellCooldownManager(
+            World world, net.spell_engine.internals.cost.SpellCooldownManager delegate) {
         this.world = world;
         this.delegate = delegate;
     }
@@ -20,13 +21,20 @@ public final class SpellCooldownManager {
         return entry != null && delegate.isCoolingDown(entry);
     }
 
-    public void set(Identifier spellId, int duration) { set(spellId, duration, true); }
+    public void set(Identifier spellId, int duration) {
+        set(spellId, duration, true);
+    }
 
     public void set(Identifier spellId, int duration, boolean force) {
         var entry = ModernSpellEntries.find(world, spellId);
         if (entry != null) delegate.set(entry, duration, force);
     }
 
-    public void remove(Identifier spellId) { delegate.remove(spellId); }
-    public void reset(@Nullable Identifier spellId) { delegate.reset(spellId); }
+    public void remove(Identifier spellId) {
+        delegate.remove(spellId);
+    }
+
+    public void reset(@Nullable Identifier spellId) {
+        delegate.reset(spellId);
+    }
 }

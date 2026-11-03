@@ -24,7 +24,7 @@ import java.util.function.Predicate;
  * are rewritten to this class by SmoothSpellbladeCompatMixinPlugin instead.
  */
 public final class LegacyTargetAccess {
-    private LegacyTargetAccess() { }
+    private LegacyTargetAccess() {}
 
     public static TargetHelper$Relation getRelation(LivingEntity attacker, Entity target) {
         EntityRelation relation = EntityRelations.getRelation(attacker, target);
@@ -41,14 +41,15 @@ public final class LegacyTargetAccess {
             TargetHelper$TargetingMode mode,
             TargetHelper$Intent intent,
             LivingEntity attacker,
-            Entity target
-    ) {
-        SpellTarget.FocusMode focus = mode == TargetHelper$TargetingMode.AREA
-                ? SpellTarget.FocusMode.AREA
-                : SpellTarget.FocusMode.DIRECT;
-        SpellTarget.Intent modernIntent = intent == TargetHelper$Intent.HELPFUL
-                ? SpellTarget.Intent.HELPFUL
-                : SpellTarget.Intent.HARMFUL;
+            Entity target) {
+        SpellTarget.FocusMode focus =
+                mode == TargetHelper$TargetingMode.AREA
+                        ? SpellTarget.FocusMode.AREA
+                        : SpellTarget.FocusMode.DIRECT;
+        SpellTarget.Intent modernIntent =
+                intent == TargetHelper$Intent.HELPFUL
+                        ? SpellTarget.Intent.HELPFUL
+                        : SpellTarget.Intent.HARMFUL;
         return EntityRelations.actionAllowed(focus, modernIntent, attacker, target);
     }
 
@@ -61,8 +62,7 @@ public final class LegacyTargetAccess {
             Vec3d origin,
             float range,
             Spell$Release$Target$Area oldArea,
-            Predicate<Entity> predicate
-    ) {
+            Predicate<Entity> predicate) {
         Spell.Target.Area area = new Spell.Target.Area();
         if (oldArea != null) {
             area.horizontal_range_multiplier = oldArea.horizontal_range_multiplier;
@@ -76,7 +76,6 @@ public final class LegacyTargetAccess {
                 caster.getRotationVector(),
                 range,
                 area,
-                predicate
-        );
+                predicate);
     }
 }

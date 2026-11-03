@@ -9,7 +9,7 @@ import net.spell_engine.api.spell.registry.SpellRegistry;
 import org.jetbrains.annotations.Nullable;
 
 public final class ModernSpellEntries {
-    private ModernSpellEntries() { }
+    private ModernSpellEntries() {}
 
     @Nullable
     public static RegistryEntry<Spell> find(World world, Identifier id) {

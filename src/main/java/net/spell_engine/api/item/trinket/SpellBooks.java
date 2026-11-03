@@ -19,7 +19,7 @@ import java.util.List;
 public final class SpellBooks {
     public static final ArrayList<SpellBookItem> all = new ArrayList<>();
 
-    private SpellBooks() { }
+    private SpellBooks() {}
 
     public static List<SpellBookItem> sorted() {
         return all.stream()
@@ -41,8 +41,8 @@ public final class SpellBooks {
 
         // Spell Engine 1.10 resolves spell-book fallback containers from this map.
         // Register it here, before server-start assignment loading copies the map.
-        net.spell_engine.internals.container.SpellAssignments.book_containers
-                .put(itemId, legacyContainer.toModern());
+        net.spell_engine.internals.container.SpellAssignments.book_containers.put(
+                itemId, legacyContainer.toModern());
 
         SpellBookItem book = new SpellBookTrinketItem(id, new FabricItemSettings().maxCount(1));
         all.add(book);
@@ -64,7 +64,8 @@ public final class SpellBooks {
         createAndRegister(id, SpellContainer.ContentType.MAGIC, group);
     }
 
-    public static void createAndRegister(Identifier id, SpellContainer.ContentType type, RegistryKey<ItemGroup> group) {
+    public static void createAndRegister(
+            Identifier id, SpellContainer.ContentType type, RegistryKey<ItemGroup> group) {
         var item = create(id, type);
         ItemGroupEvents.modifyEntriesEvent(group).register(content -> content.add(item));
         register(item);

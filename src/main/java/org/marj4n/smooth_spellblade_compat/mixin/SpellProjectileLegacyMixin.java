@@ -9,7 +9,8 @@ import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(value = SpellProjectile.class, priority = 100)
 public abstract class SpellProjectileLegacyMixin {
-    @Shadow public abstract RegistryEntry<Spell> getSpellEntry();
+    @Shadow
+    public abstract RegistryEntry<Spell> getSpellEntry();
 
     public Spell getSpell() {
         var entry = getSpellEntry();

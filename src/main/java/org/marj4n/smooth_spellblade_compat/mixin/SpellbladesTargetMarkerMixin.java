@@ -20,14 +20,16 @@ import org.spongepowered.asm.mixin.Mixin;
  * plugin gets a postApply pass after ESA's default-priority mixin and rewrites
  * those field reads to LegacySpellPowerAccess.attribute(...).
  */
-@Mixin(value = {
-        PlayerEntity.class,
-        LivingEntity.class,
-        ItemEntity.class,
-        ItemStack.class,
-        Entity.class,
-        AttributeContainer.class,
-        SpellHelper.class,
-        SpellContainerHelper.class
-}, priority = 100)
-public abstract class SpellbladesTargetMarkerMixin { }
+@Mixin(
+        value = {
+            PlayerEntity.class,
+            LivingEntity.class,
+            ItemEntity.class,
+            ItemStack.class,
+            Entity.class,
+            AttributeContainer.class,
+            SpellHelper.class,
+            SpellContainerHelper.class
+        },
+        priority = 100)
+public abstract class SpellbladesTargetMarkerMixin {}

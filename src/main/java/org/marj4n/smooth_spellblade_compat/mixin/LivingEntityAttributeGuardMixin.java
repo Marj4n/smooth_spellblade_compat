@@ -25,12 +25,9 @@ public abstract class LivingEntityAttributeGuardMixin {
     @Inject(
             method = "getAttributeValue(Lnet/minecraft/entity/attribute/EntityAttribute;)D",
             at = @At("HEAD"),
-            cancellable = true
-    )
+            cancellable = true)
     private void smoothSpellbladeCompat$guardUninitializedAttributes(
-            EntityAttribute attribute,
-            CallbackInfoReturnable<Double> cir
-    ) {
+            EntityAttribute attribute, CallbackInfoReturnable<Double> cir) {
         LivingEntity self = (LivingEntity) (Object) this;
 
         if (self.getAttributes() == null) {
