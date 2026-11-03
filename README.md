@@ -16,7 +16,7 @@ Install the regular JAR from `build/libs/` with Fabric API, Spellblades, Spell E
 
 `src/main/java/org/marj4n` contains compatibility adapters; legacy `net.spell_engine` packages are intentional API facades. `src/client` contains client adapters; resource folders contain migrated spells, assignments and tags. Preserve those public names and descriptors when editing.
 
-The unscoped legacy world fallback is weak; nested spell-delivery scopes remain strong until closed. Migrated mana/custom-delivery and visual behavior still need per-spell coverage; startup or build success is not proof of complete gameplay equivalence.
+The unscoped legacy world fallback is weak; nested spell-delivery scopes remain strong until closed. Migrated mana/custom-delivery and visual behavior still need per-spell coverage; startup or build success is not proof of complete gameplay equivalence. The unassigned Bulwark draft is retained in source but excluded from active migration: upstream 2.4.0 never registers its status effect, so exposing it would crash spell delivery. Rebuke reuses the existing upstream gladius projectile geometry; the upstream distribution does not contain its referenced spear model.
 
 ## License
 

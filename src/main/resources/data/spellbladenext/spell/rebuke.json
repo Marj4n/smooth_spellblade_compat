@@ -83,7 +83,7 @@
             "models": [
               {
                 "fx": {
-                  "model_id": "spellbladenext:projectile/spear",
+                  "model_id": "spellbladenext:projectile/gladius",
                   "scale": 1,
                   "rotate_degrees_per_tick": 0,
                   "orientation": "TOWARDS_MOTION"

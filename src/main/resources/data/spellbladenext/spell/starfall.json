@@ -76,7 +76,7 @@
             "models": [
               {
                 "fx": {
-                  "model_id": "minecraft:amethyst_block",
+                  "model_id": "minecraft:block/amethyst_block",
                   "scale": 0.4
                 }
               }

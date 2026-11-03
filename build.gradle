@@ -68,3 +68,33 @@ publishing {
         }
     }
 }
+
+// Spellblades 2.4.0 ships this unassigned draft without registering its effect.
+// Preserve its source, but do not promote it into the modern active spell registry.
+tasks.named('processResources') { exclude 'data/spellbladenext/spell/bulwark.json' }
+
+tasks.register('validateMigratedSpellAssignments') {
+    def resources = file('src/main/resources/data/spellbladenext')
+    inputs.dir(resources)
+    doLast {
+        fileTree(resources).matching { include '**/*.json'; exclude 'spell/bulwark.json' }.files.each { source ->
+            if (source.text.contains('"spellbladenext:bulwark"')) {
+                throw new GradleException('Unimplemented upstream Bulwark assigned by ' + source)
+            }
+        }
+    }
+}
+tasks.named('processResources') { dependsOn 'validateMigratedSpellAssignments' }
+
+tasks.register('verifyMigratedSpellJar') {
+    dependsOn 'remapJar'
+    doLast {
+        new java.util.jar.JarFile(tasks.named('remapJar').get().archiveFile.get().asFile).withCloseable { jar ->
+            if (jar.getJarEntry('data/spellbladenext/spell/bulwark.json') != null) {
+                throw new GradleException('Unimplemented Bulwark draft leaked into active migrated data')
+            }
+        }
+        logger.lifecycle('Verified active migration excludes the unassigned upstream Bulwark draft; source retained')
+    }
+}
+tasks.named('check') { dependsOn 'verifyMigratedSpellJar' }

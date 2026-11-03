@@ -34,7 +34,7 @@
       "client_data": {
         "light_level": 14,
         "model": {
-          "model_id": "paladins:effect/battle_banner",
+          "model_id": "paladins:spell_effect/battle_banner",
           "rotate_degrees_per_tick": 0,
           "light_emission": "NONE"
         },
