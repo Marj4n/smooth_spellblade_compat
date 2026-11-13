@@ -24,6 +24,6 @@ By Marj4n. Upstream Spell Engine and Spellblades retain their original authorshi
 
 ## Reuse permissions
 
-Reusing or modifying Marj4n-owned source code or assets requires prior written permission. Contact Marj4n through [nivekts.vercel.app](https://nivekts.vercel.app/) with the intended use. See [LICENSE.txt](LICENSE.txt) for gameplay permissions and exceptions. Third-party licenses, existing grants and GitHub platform rights remain applicable.
+Reusing or modifying Marj4n-owned source code or assets requires prior written permission. Contact Marj4n through [marj4n.vercel.app](https://marj4n.vercel.app/) with the intended use. See [LICENSE.txt](LICENSE.txt) for gameplay permissions and exceptions. Third-party licenses, existing grants and GitHub platform rights remain applicable.
 
 Migrated Spellblades material retains cleannrooster's MIT license, reproduced in `LICENSE.txt`. The permission requirement above applies only to Marj4n-owned material and does not restrict those MIT rights.
